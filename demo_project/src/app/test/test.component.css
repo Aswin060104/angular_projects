@@ -79,7 +79,27 @@ i {
     gap: 30px;
     padding: 40px 20px;
 }
-
+.search-bar{
+    height: auto;
+    margin-bottom: 10px;
+}
+.search-bar input{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 16px;
+    padding: 0px 10px;
+    background-color: rgb(54, 49, 49);
+    color: white;
+}
+.search-bar input:focus, .search-bar input:hover{
+    border: solid 1px rgb(129, 122, 92);
+    outline: none;
+}
+.search-bar p{
+    color: white;
+}
 .left-container {
     font-size: 10px;
 }

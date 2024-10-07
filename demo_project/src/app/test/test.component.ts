@@ -10,6 +10,8 @@ export class TestComponent {
   display = false;
   register = "Register Course";
 
+  searchedValues = "";
+
   courses = [
     {id :0, name : "Data Structure and Algorithm", status : false, value: "Register Course" },
     {id :1, name : "Java Programmimg Essenials", status : false, value: "Register Course"},
