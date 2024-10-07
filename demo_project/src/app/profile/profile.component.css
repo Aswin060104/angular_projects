@@ -1,0 +1,36 @@
+body{
+    background-color: white;
+}
+.card{
+    background-color: rgb(53, 48, 48);
+    height: 400px;
+}
+.card div{
+    color: white;
+}
+.content{
+    z-index: 10;
+    height: 150px;
+    background-color: rgb(107, 69, 69);
+}
+ img{
+    opacity: 0.5;
+    height: 250px;
+    position: absolute;
+    left: 50px;
+}
+
+.content::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    content: "";
+    background-image: url("D:/project_repository/angular_projects/demo_project/src/assets/images/data_structure.png");
+    z-index: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+    background-clip: text;
+}

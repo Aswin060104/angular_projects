@@ -28,53 +28,53 @@
             <button><i>Premium</i></button>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" >
         <div class="left-continer">
             <div class="card-container">
                 <div class="card" id="card-1">
-                    <div class="card-img">
+                    <div class="card-img" [ngClass] = "{'active' : courses[0].status}">
                         <div class="heading">
                             <h3>LeetCode's Interview <br>Crash Course:</h3>
                             <p>Data Structure and Algorithm</p>
                         </div>
-                        <button>Start Learning</button>
+                        <button (click) = "registerCourse(courses[0].id)">{{courses[0].value}}</button>
                     </div>
                 </div>
                 <div class="card" id="card-2">
-                    <div class="card-img">
+                    <div class="card-img" [ngClass] = "{'active' : courses[1].status}">
                         <div class="heading">
                             <h3>LeetCode's Interview <br>Crash Course:</h3>
-                            <p>System Design for Interviews and Beyond</p>
+                            <p>Java Programmimg Essenials</p>
                         </div>
-                        <button>Start Learning</button>
+                        <button (click) = "registerCourse(courses[1].id)">{{courses[1].value}}</button>
                     </div>
                 </div>
                 <div class="card" id="card-3">
-                    <div class="card-img">
+                    <div class="card-img" [ngClass] = "{'active' : courses[2].status}">
                         <div class="heading">
                             <h3>LeetCode's Interview <br>Crash Course:</h3>
-                            <p>System Design for Interviews and Beyond</p>
+                            <p>Python Programming</p>
                         </div>
-                        <button>Start Learning</button>
+                        <button (click) = "registerCourse(courses[2].id)">{{courses[2].value}}</button>
                     </div>
                 </div>
             </div>
             <div class="study-plan">
                 <p>Study Plan</p>
-                <p>See all</p>
+                <p><button (click) = "onclick()">See all Courses</button></p>
             </div>
-            <div class="course-container">
+            <div class="course-container"*ngIf = "display" >
                 <div class="course-card">
                     <div class="course-img" id="image1">
                         <img src="assets/images/top.png" alt="" >
                     </div>
                     <div class="course-details">
-                        <b>Top Interview Questions</b>
+                        <b>{{title}}</b>
                         <p>Must-to List for...</p>
                     </div>
                 </div>
                 <div class="course-card">
-                    <div class="course-img">
+                    <div  class="course-img">
                         <img src="assets/images/target.png" alt="" id="image2">
                     </div>
                     <div class="course-details">
