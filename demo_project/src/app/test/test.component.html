@@ -32,7 +32,7 @@
         <div class="left-continer">
             <div class="search-bar">
                 <input type="search" placeholder="Enter a course" [(ngModel)] = "searchedValues">
-                <p>Suggestions : {{searchedValues}}</p>
+                <p *ngIf = "searchedValues != ''" >Suggestions : {{searchedValues}}</p>
             </div>
             <div class="card-container">
                 <div class="card" id="card-1">

@@ -21,11 +21,11 @@
 
 <button (click) = "changeStatus()">Click to view</button>
 <div class="container">
-    <div class="card" *ngFor="let course of courses">
+    <div class="card" *ngFor="let course of courses" [ngClass] = "{'super-card' : course.limit > 50}" >
         <div class="card-img">
             <img src={{course.img}} alt="i"></div>
         <div class="card-details">
-            <p>{{course.name}}</p> <p>{{course.limit}}</p>
+            <p>{{course.name}}</p> <p [ngStyle] = "{ color : course.limit > 50 ? 'green' : 'orange'}">{{course.limit}}</p>
             <p>{{course.details}}</p>
         </div>
     </div>
