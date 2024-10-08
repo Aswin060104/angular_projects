@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent {
+  
   title = "Top Interview Questions";
   display = false;
   register = "Register Course";
 
+  codingImage = 'assets/images/coding.png';
   searchedValues = "";
 
   courses = [

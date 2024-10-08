@@ -10,7 +10,7 @@
 <body>
     <nav>
         <div class="nav-left">
-            <img src="assets/images/coding.png" alt="">
+            <img src={{codingImage}} alt="">
             <li><a href="">Explore</a></li>
             <li class="active"><a href="">Problems</a></li>
             <li><a href="">Contest</a></li>
@@ -67,7 +67,7 @@
                 <p>Study Plan</p>
                 <p><button (click) = "onclick()">See all Courses</button></p>
             </div>
-            <div class="course-container"*ngIf = "display" >
+            <div class="course-container" *ngIf = "display" >
                 <div class="course-card">
                     <div class="course-img" id="image1">
                         <img src="assets/images/top.png" alt="" >

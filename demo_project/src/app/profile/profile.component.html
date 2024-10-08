@@ -1,16 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="card">
-        <img src="" alt="">
-        <div class="content">
-            <h1>Hello this div has background image</h1>
+<button (click) = increment()>Increment</button>
+<button (click) = decrement()>Decrement</button>
+
+<p>value = {{value}}</p>
+
+<p>My college is {{college}}</p>
+
+<div on-mouseenter="mouse()">
+    Hover this
+</div>
+
+<input type="text" placeholder="Enter any value" [(ngModel)] = "someValue"> 
+<p>Values : {{someValue}}</p>
+
+<input  on-input="onInput($event)">
+<p>Input: {{inputValue}}</p>
+
+<div [hidden] = "status">
+    This is a div tag
+</div>
+
+<button (click) = "changeStatus()">Click to view</button>
+<div class="container">
+    <div class="card" *ngFor="let course of courses">
+        <div class="card-img">
+            <img src={{course.img}} alt="i"></div>
+        <div class="card-details">
+            <p>{{course.name}}</p> <p>{{course.limit}}</p>
+            <p>{{course.details}}</p>
         </div>
     </div>
-</body>
-</html>
+</div>
+<div>
+    <br><br>
+    <label for="name">Name: </label>
+    <input type="text" id = 'name' #name><br><br>
+    <label for="">Limit: </label>
+    <input type="text" id="limit" #limit><br><br>
+    <label for="imgLoc">Image Location : </label>
+    <input type="text" id="imgLoc" #imgLoc><br><br>
+    <label for="details">Details : </label>
+    <input type="text" id="details" #details><br><br>
+    <button (click) = "addCourse(name.value, limit.value, imgLoc.value, details.value)">Add Course</button>
+</div>

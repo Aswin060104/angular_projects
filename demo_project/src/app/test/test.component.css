@@ -94,7 +94,7 @@ i {
     color: white;
 }
 .search-bar input:focus, .search-bar input:hover{
-    border: solid 1px rgb(129, 122, 92);
+    border: solid 1px rgb(146, 141, 120);
     outline: none;
 }
 .search-bar p{
