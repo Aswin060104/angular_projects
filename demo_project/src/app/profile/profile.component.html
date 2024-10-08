@@ -21,6 +21,7 @@
 
 <button (click) = "changeStatus()">Click to view</button>
 <div class="container">
+    <h2 style="text-align: center;">Courses</h2>
     <div class="card" *ngFor="let course of courses" [ngClass] = "{'super-card' : course.limit > 50}" >
         <div class="card-img">
             <img src={{course.img}} alt="i"></div>
