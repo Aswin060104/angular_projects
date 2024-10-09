@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent {
-  
+
   title = "Top Interview Questions";
-  display = false;
+  display = true;
   register = "Register Course";
 
   codingImage = 'assets/images/coding.png';
@@ -32,4 +32,10 @@ export class TestComponent {
   onclick() {
     this.display = true;
   }
+
+  changeView(s : string){
+    this.change = s;
+  }
+
+  change = "";
 }

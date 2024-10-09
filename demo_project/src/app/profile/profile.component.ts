@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -53,4 +53,7 @@ value = 0;
     var n : number= Number(limit);
     this.courses.push({name, limit, img, details});
   }
+
+  @Input()
+  count : string = "";
 }

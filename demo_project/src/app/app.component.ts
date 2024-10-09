@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'demo_project';
   subtitle = 'first angular project';
+  appCount = "Hello world";
 }
