@@ -11,7 +11,7 @@ export class TestComponent {
   display = true;
   register = "Register Course";
 
-  codingImage = 'assets/images/coding.png';
+  
   searchedValues = "";
 
   courses = [
