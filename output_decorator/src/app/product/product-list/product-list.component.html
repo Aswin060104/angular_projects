@@ -1,0 +1,15 @@
+<p>{{searchBarValue}}</p>
+
+<div class="card-container">
+    <ng-container *ngFor="let course of Allcourses">
+        <div class="card" *ngIf = "course.name.toLowerCase().includes(searchBarValue) ">
+            <div class="card-image">
+                <img [src]="course.imageLocation" alt="">
+            </div>
+            <div>
+                <h3>{{course.name}}</h3>
+                <p>{{course.description}}</p>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,11 @@
+.radio-container{
+    border: solid rgb(207, 197, 197) 1px;
+    background-color: rgb(218, 203, 203);
+    border-radius: 5px;
+    display: inline;
+    padding: 10px 20px;
+}
+.radio-container label{
+    margin-right: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

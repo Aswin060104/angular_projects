@@ -1,0 +1,5 @@
+<div class="product">
+    <app-filter (changeSelectedRadioButton) = "onFilterChange($event)"></app-filter>
+    <p>Value : {{searchBarValue}}</p>
+    <app-product-list [Allcourses]="courses" [radioButtonValue]="radioValue" [searchBarValue]="searchBarValue"></app-product-list>
+</div>
