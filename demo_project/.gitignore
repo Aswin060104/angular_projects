@@ -47,8 +47,6 @@ Thumbs.db
 package-lock.json
 package.json
 
-# Exclude src files if necessary (uncomment if needed)
-/src/
 
 # Tailwind configuration
 tailwind.config.js

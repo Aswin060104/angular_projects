@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 40px 20px;
+}
+app-calender-container{
+    width: 30%;
+}
