@@ -1,0 +1,5 @@
+<div class="product">
+    <app-filter (changeSelectedRadioButton) = "onFilterChange($event)" #FilterComponent></app-filter>
+    
+    <app-product-list [Allcourses]="courses" [radioButtonValue]="radioValue" [searchBarValue]="searchBarValue" FilterComponent.selectedRadioButton></app-product-list>
+</div>

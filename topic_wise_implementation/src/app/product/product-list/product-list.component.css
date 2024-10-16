@@ -14,6 +14,13 @@
     border-radius: 10px;
     gap: 20px;
 }
+.card div button{
+    background-color: rgb(28, 14, 90);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
 .card-image{
     height: 60px;
 }

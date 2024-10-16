@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Registered } from '../../services/registered.service'; 
 
 @Component({
   selector: 'app-product-list',
@@ -14,4 +15,9 @@ export class ProductListComponent {
 
   @Input()
   Allcourses : {id : number, name : string, available : boolean, imageLocation : string, description : string, reference : string}[] = [];
+
+  onRegister(name : string){
+    var r = new Registered();
+    r.onRegister(name);
+  }
 }

@@ -14,7 +14,6 @@ export class FilterComponent {
   selectedRadioButton : string= "all";
 
   onChangeSelectedRadioButton(){
-    
     this.changeSelectedRadioButton.emit(this.selectedRadioButton);
     console.log(this.selectedRadioButton);
   }
