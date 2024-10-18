@@ -1,0 +1,27 @@
+<body>
+    <div class="form">
+        <h2>Registration Form</h2>
+        <div class="form-details">
+            <div class="form-details-value">
+                <label for="name">Name : </label>
+                <input type="text" id="name" placeholder="Enter your name" [(ngModel)] = "name"><br><br>
+                <label for="age">Age : </label>
+                <input type="number" placeholder="Enter your age" id="age" [(ngModel)] = "age"><br><br>
+            </div>
+            <div class="form-details-value">
+                <label for="status">Status : </label>
+                <select name="Status" id="status" [(ngModel)] = "active">
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select><br><br>
+                <label for="">Nationality : </label>
+                <select name="1" id="1" [(ngModel)] = "nationality">
+                    <option value="indian">Indian</option>
+                    <option value="american">American</option>
+                    <option value="canadian">Canadian</option>
+                </select><br><br>
+            </div>
+        </div>
+        <button (click) = "addUser()">Submit</button>
+    </div>
+</body>

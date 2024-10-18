@@ -1,0 +1,33 @@
+.form{
+    display: flex;
+    background-color: rgb(157, 203, 218);
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+}
+.form-details{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.form-details-values{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    width: 150px;
+    border-radius: 10px;
+    background-color: green;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+}
+input,select{
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(241, 222, 222);
+}
+input:hover{
+    background-color: rgb(214, 206, 206);
+}

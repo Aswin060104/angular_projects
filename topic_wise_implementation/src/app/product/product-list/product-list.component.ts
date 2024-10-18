@@ -4,7 +4,8 @@ import { Registered } from '../../services/registered.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  providers : [Registered]
 })
 export class ProductListComponent {
   @Input()
@@ -16,8 +17,12 @@ export class ProductListComponent {
   @Input()
   Allcourses : {id : number, name : string, available : boolean, imageLocation : string, description : string, reference : string}[] = [];
 
-  onRegister(name : string){
-    var r = new Registered();
-    r.onRegister(name);
+
+  constructor( private register : Registered){ // to avoid tight coupling
+
+  }
+
+  onRegister(name : string){ 
+    this.register.onRegister(name);
   }
 }

@@ -1,0 +1,12 @@
+<body>
+    <h2>Registered Members</h2>
+    <div *ngFor = "let i of user">
+        <hr>
+        <div class="details-card">
+            <p><b>Name : </b>{{i.user}}</p>
+            <p><b>Status : </b> {{i.active}}</p>
+            <p><b>Age : </b>{{i.age}}</p>
+            <p><b>Nationality : </b>{{i.nationality}}</p>
+        </div>
+    </div>
+</body>
