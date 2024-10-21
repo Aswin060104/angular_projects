@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { ServicesComponent } from './services/services.component';
 import { AdminComponent } from './services/admin/admin.component';
 import { UserComponent } from './services/user/user.component';
 import { dataStorageService } from './services/dataStorageService/dataStorage.service';
+import { NavbarComponent } from './navbar/navbar.component';
+
+export const ds = new InjectionToken<dataStorageService>('dataStorage');
 
 @NgModule({
   declarations: [
@@ -22,14 +25,17 @@ import { dataStorageService } from './services/dataStorageService/dataStorage.se
     SearchBarComponent,
     ServicesComponent,
     AdminComponent,
-    UserComponent
+    UserComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers : [dataStorageService],
+  // providers : [dataStorageService
+  //   //{provide : ds, useClass : dataStorageService}
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

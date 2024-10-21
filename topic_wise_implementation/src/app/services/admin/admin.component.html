@@ -3,10 +3,16 @@
     <div *ngFor = "let i of user">
         <hr>
         <div class="details-card">
-            <p><b>Name : </b>{{i.user}}</p>
-            <p><b>Status : </b> {{i.active}}</p>
-            <p><b>Age : </b>{{i.age}}</p>
+            <p><b>Name : </b>{{i.user}} | </p>
+            <p><b>Status : </b> {{i.active}} | </p>
+            <p><b>Age : </b>{{i.age}} | </p>
             <p><b>Nationality : </b>{{i.nationality}}</p>
+            <div *ngIf = "i.age < 20; else thenBlock">
+                <p>Age is less than 10</p>
+            </div>
+            <ng-template #thenBlock>
+                <p>Age is greater than 20</p>
+            </ng-template>
         </div>
     </div>
 </body>

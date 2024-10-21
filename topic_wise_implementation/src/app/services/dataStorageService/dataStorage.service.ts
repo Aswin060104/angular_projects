@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 import { user } from "../model/user";
 
 export class dataStorageService{
