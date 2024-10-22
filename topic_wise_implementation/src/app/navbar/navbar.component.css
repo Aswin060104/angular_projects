@@ -4,7 +4,6 @@ nav{
     display: flex;
     padding: 10px 25px;
     flex-direction: row;
-    width: 100%;
 }
 .nav-left{
     flex: 1;
@@ -28,7 +27,7 @@ a, li{
     color: black;
     margin-right: 10px;
 }
-a:hover{
+li:hover{
     background-color: rgb(144, 183, 196);
     transition: 0.3s;
 }

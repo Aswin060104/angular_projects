@@ -20,7 +20,12 @@ export class ProductComponent {
     this.radioValue = value; 
   }
 
-  @Input()
-  searchBarValue : string = "";
+  
 
+  searchBarValue : string = "";
+  
+  enteredSearchBarValue(value : any){
+    this.searchBarValue = value;
+    console.log(value); 
+  }
 }

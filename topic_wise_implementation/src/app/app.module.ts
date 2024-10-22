@@ -7,7 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { FilterComponent } from './product/filter/filter.component';
 import { FormsModule } from '@angular/forms';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchBarComponent } from './product/search-bar/search-bar.component';
 import { ServicesComponent } from './services/services.component';
 import { AdminComponent } from './services/admin/admin.component';
 import { UserComponent } from './services/user/user.component';

@@ -1,4 +1,5 @@
 <div class="product">
+    <app-search-bar (enteredSearchBarValue) = "enteredSearchBarValue($event)"></app-search-bar>
     <app-filter (changeSelectedRadioButton) = "onFilterChange($event)" #FilterComponent></app-filter>
     <app-product-list [Allcourses]="courses" [radioButtonValue]="radioValue" [searchBarValue]="searchBarValue" FilterComponent.selectedRadioButton></app-product-list>
 </div>

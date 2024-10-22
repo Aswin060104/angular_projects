@@ -9,10 +9,5 @@ export class AppComponent {
   title = 'output_decorator';
 
 
-  searchBarValue : string = "";
   
-  enteredSearchBarValue(value : any){
-    this.searchBarValue = value;
-    console.log(value); 
-  }
 }

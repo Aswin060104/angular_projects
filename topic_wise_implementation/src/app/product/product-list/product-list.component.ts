@@ -22,6 +22,10 @@ export class ProductListComponent {
 
   }
 
+  displayCourseCard(){
+    return this.Allcourses.some( course => course.name.toLowerCase().includes(this.searchBarValue));
+  }
+
   onRegister(name : string){ 
     this.register.onRegister(name);
   }

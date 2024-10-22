@@ -12,10 +12,10 @@ export class SearchBarComponent {
   enteredSearchBarValue : EventEmitter<string> = new EventEmitter<string>();
 
   onSearch(){
-    //this.enteredSearchBarValue.emit(this.searchBarValue);
+    this.enteredSearchBarValue.emit(this.searchBarValue);
   }
   onSearchClicked(v : HTMLInputElement){
-    this.enteredSearchBarValue.emit(v.value);  
+    // this.enteredSearchBarValue.emit(v.value);  
     console.log(v.value);
     
   }

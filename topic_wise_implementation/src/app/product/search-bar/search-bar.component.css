@@ -1,0 +1,25 @@
+.search-bar-outer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+input{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: rgb(221, 214, 214);
+}
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+input:focus{
+    outline: none;
+}
+button{
+    border: none;
+    background-color: black;
+    color: white;
+}
