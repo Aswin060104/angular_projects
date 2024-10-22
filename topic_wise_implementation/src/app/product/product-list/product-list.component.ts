@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Registered } from '../../services/registered.service'; 
+import { SelectedCourses } from 'src/app/services/selectedCourses.service';
 
 @Component({
   selector: 'app-product-list',
@@ -28,5 +29,13 @@ export class ProductListComponent {
 
   onRegister(name : string){ 
     this.register.onRegister(name);
+  }
+
+  display : SelectedCourses = inject(SelectedCourses);
+  
+  selectedCourse(selectedCourseId : number){
+    this.display.courseName = this.Allcourses[selectedCourseId].name;
+    this.display.courseDescription = this.Allcourses[selectedCourseId].description;
+    this.display.courseDescription = this.Allcourses[selectedCourseId].imageLocation;
   }
 }

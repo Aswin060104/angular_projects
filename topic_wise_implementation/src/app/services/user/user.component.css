@@ -1,10 +1,13 @@
-.form{
+body{
+    align-items: center;
+}.form{
     display: flex;
     background-color: rgb(157, 203, 218);
     flex-direction: column;
     padding: 20px;
     border-radius: 10px;
     align-items: center;
+    width: 50%;
 }
 .form-details{
     display: flex;

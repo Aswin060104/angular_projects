@@ -1,4 +1,6 @@
-.details-card{
+body{
+    align-items: center;
+}.details-card{
     display: flex;
     flex-direction: row;
     gap: 10px;

@@ -1,10 +1,10 @@
 <nav>
     <ul class="nav-left">
-        <li><a routerLink="">Home</a></li>
-        <li><a routerLink="course">Courses</a></li>
+        <li><a routerLink="" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact :true}">Home</a></li>
+        <li><a routerLink="course" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact :true}">Courses</a></li>
     </ul>
     <ul class="nav-right">
-        <li><a routerLink="details" routeLink>Register</a></li>
-        <li><a routerLink="register">Admin</a></li>
+        <li><a routerLink="register" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact :true}">Register</a></li>
+        <li><a routerLink="details" routerLinkActive = "active" [routerLinkActiveOptions] = "{exact :true}">Admin</a></li>
     </ul>
 </nav>

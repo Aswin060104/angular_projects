@@ -2,7 +2,6 @@ nav{
     background-color: lightblue;
     font-size: 18px;
     display: flex;
-    padding: 10px 25px;
     flex-direction: row;
 }
 .nav-left{
@@ -17,17 +16,17 @@ nav{
 ul{
     margin: 0px;
 }
-li:hover{
+a:hover{
     background-color: rgb(144, 181, 194);
     transition: 0.3s;
+    padding: 10px 10px;
 }
 a, li{
     list-style-type: none;
     text-decoration: none;
     color: black;
-    margin-right: 10px;
+    padding: 10px 10px;
 }
-li:hover{
+.active{
     background-color: rgb(144, 183, 196);
-    transition: 0.3s;
 }

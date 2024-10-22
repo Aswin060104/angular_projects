@@ -6,15 +6,14 @@ import {  ds } from 'src/app/app.module';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
-  providers:[dataStorageService]
+  styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
 
-  // dataServiceAdmin = inject(ds);
-  constructor(private dataServiceAdmin : dataStorageService){
+  dataServiceAdmin = inject(ds);
+  // constructor(private dataServiceAdmin : dataStorageService){
     
-  }
+  // }
 
   user : user[] = this.dataServiceAdmin.returnAllUser();
 

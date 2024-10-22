@@ -11,7 +11,7 @@
                 <div>
                     <h3>{{course.name}}</h3>
                     <p>{{course.description}}</p>
-                    <button (click)="onRegister(course.name)">Register</button>
+                    <button><a [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)">Registerr</a></button>
                 </div>
             </div>
 

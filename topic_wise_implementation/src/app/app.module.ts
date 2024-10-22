@@ -13,6 +13,9 @@ import { AdminComponent } from './services/admin/admin.component';
 import { UserComponent } from './services/user/user.component';
 import { dataStorageService } from './services/dataStorageService/dataStorage.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SelectedCourses } from './services/selectedCourses.service';
 
 export const ds = new InjectionToken<dataStorageService>('dataStorage');
 
@@ -26,16 +29,21 @@ export const ds = new InjectionToken<dataStorageService>('dataStorage');
     ServicesComponent,
     AdminComponent,
     UserComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotFoundComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  // providers : [dataStorageService
-  //   //{provide : ds, useClass : dataStorageService}
-  // ],
+  providers : 
+  [
+    // dataStorageService
+    SelectedCourses,
+    {provide : ds, useClass : dataStorageService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
