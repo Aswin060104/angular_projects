@@ -8,10 +8,14 @@
                 <div class="card-image">
                     <img [src]="course.imageLocation" alt="">
                 </div>
-                <div>
+                <div class="card-details">
                     <h3>{{course.name}}</h3>
                     <p>{{course.description}}</p>
-                    <button><a [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)">Registerr</a></button>
+                    <div class="card-details-button">
+                        <button [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)" [routerLink] = "'/course/selectedCourse/'+ course.id"> Details</button>
+                        <button [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)" [routerLink] = "'/register'">Register</button>
+                    </div>
+                    
                 </div>
             </div>
 

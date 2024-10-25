@@ -1,3 +1,12 @@
-<div>
-    <p>{{display.courseName}}</p>
+<div class="card-container">
+    <div class="card">
+        <div class="card-img">
+            <img [src]="display.courses[selectedCourseId].imageLocation" alt="">
+            <h3>{{display.courses[selectedCourseId].name}}</h3>
+        </div>
+        <div class="card-details">
+            
+            <p>{{display.courses[selectedCourseId].description}}</p>
+        </div>
+    </div>
 </div>

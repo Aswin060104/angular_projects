@@ -1,0 +1,25 @@
+.card-container{
+    place-items: center;
+}
+.card{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 1px black;
+    width: 400px;
+}
+.card-img{
+    background-color: rgb(201, 184, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    gap: 20px;
+}
+img{
+    height: 120px;
+}
+.card-details{
+    padding: 20px;
+}

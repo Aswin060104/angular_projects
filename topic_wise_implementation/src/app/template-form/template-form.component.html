@@ -1,0 +1,49 @@
+<div class="form-container">
+    <form class="form" (ngSubmit) = "register(registrationForm)" #registrationForm = "ngForm">
+        <h2>Registration From</h2>
+        <div class="column">
+            <div class="column">
+                <div class="row">
+                    <input type="firstName" name="firstName" id="firstName" placeholder="First Name">
+                    <input type="lastName" name="lastName" id="lastName" placeholder="Last Name">
+                </div>
+                <div class="column">
+                    <input type="email" name="email" placeholder="Enter Email">
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="column">
+                    <div>
+                        <label for="">Profession : </label>
+                        <input type="radio" name="Staff" id="Staff" >
+                        <label for="Staff">Staff</label> 
+                        <input type="radio" name="Staff" id="Student">
+                        <label for="Student">Student</label>  
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="text" name="address" id="address" placeholder="Address">
+                </div>
+                <div class="column">
+                    <div class="row">
+                        <select>
+                            <option hidden>Country</option>
+                            <option value="india">India</option>
+                            <option value="australia">Australia</option>
+                            <option value="england">England</option>
+                        </select>
+                        <input type="text" placeholder="State" name="State" id="State">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="" id="" placeholder="District">
+                        <input type="number" name="" id="" placeholder="Pin Code">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

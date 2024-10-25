@@ -1,0 +1,66 @@
+.form-container{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+.form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 60px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.row :nth-child(1){
+    flex: 1;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.column :nth-child(1){
+    flex: 1;
+}
+input, button, select{
+    border: solid orange 1px;
+    padding: 10px 20px;
+}
+::placeholder{
+    color: rgb(105, 90, 62);
+}
+button{
+    color: white;
+    background-color: orange;
+}
+h2{
+    color: orange;
+    font-weight: bold;
+}
+label{
+    color: rgb(170, 111, 1);
+}
+::placeholder-shown{
+    color: orange;
+}
+option{
+    color: rgb(170, 112, 5);
+    border-radius: 10px;
+    background-color: white;
+}
+option:hover{
+    background-color: rgb(223, 180, 100);
+    color: black;
+}
+input:focus{
+    outline:none;
+}
+button:hover{
+    background-color: rgb(255, 102, 0);
+    transition: 0.3s;
+}

@@ -24,18 +24,23 @@
     gap: 20px;
     height: 150px;
 }
-.card div button{
-    background-color: rgb(28, 14, 90);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-}
+
 .card-image{
     height: 60px;
 }
 .card-image img{
     height: 100%;
+}
+.card-details-button{
+    display: flex;
+    gap: 10px;
+}
+.card-details-button button{
+    background-color: rgb(28, 14, 90);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
 }
 .no-match{
     border: 1px solid rgb(184, 177, 177);
