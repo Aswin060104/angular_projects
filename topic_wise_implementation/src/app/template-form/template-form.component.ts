@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-template-form',
@@ -9,8 +10,7 @@ export class TemplateFormComponent {
 
   
 
-  register(form : any){
+  register(form : NgForm){
     console.log(form);
-    
   }
 }

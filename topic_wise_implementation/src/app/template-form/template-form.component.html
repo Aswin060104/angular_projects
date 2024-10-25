@@ -4,40 +4,40 @@
         <div class="column">
             <div class="column">
                 <div class="row">
-                    <input type="firstName" name="firstName" id="firstName" placeholder="First Name">
-                    <input type="lastName" name="lastName" id="lastName" placeholder="Last Name">
+                    <input type="firstName" name="firstName" id="firstName" placeholder="First Name" ngModel>
+                    <input type="lastName" name="lastName" id="lastName" placeholder="Last Name" ngModel>
                 </div>
                 <div class="column">
-                    <input type="email" name="email" placeholder="Enter Email">
+                    <input type="email" name="email" placeholder="Enter Email" ngModel>
                 </div>
             </div>
             
             <div class="column">
                 <div class="column">
                     <div>
-                        <label for="">Profession : </label>
-                        <input type="radio" name="Staff" id="Staff" >
+                         Profession
+                        <input type="radio" name="Profession" value="Staff" id="Staff" ngModel>
                         <label for="Staff">Staff</label> 
-                        <input type="radio" name="Staff" id="Student">
+                        <input type="radio" name="Profession" value="Student" id="Student" ngModel>
                         <label for="Student">Student</label>  
                     </div>
                 </div>
                 <div class="row">
-                    <input type="text" name="address" id="address" placeholder="Address">
+                    <input type="text" name="address" id="address" placeholder="Address" ngModel>
                 </div>
                 <div class="column">
                     <div class="row">
-                        <select>
-                            <option hidden>Country</option>
+                        <select name="country" ngModel>
+                            <option hidden >Country</option>
                             <option value="india">India</option>
                             <option value="australia">Australia</option>
                             <option value="england">England</option>
                         </select>
-                        <input type="text" placeholder="State" name="State" id="State">
+                        <input type="text" placeholder="State" name="State" id="State" ngModel>
                     </div>
                     <div class="row">
-                        <input type="text" name="" id="" placeholder="District">
-                        <input type="number" name="" id="" placeholder="Pin Code">
+                        <input type="text" name="district" id="" placeholder="District" ngModel>
+                        <input type="number" name="pinCode" id="" placeholder="Pin Code"ngModel>
                     </div>
                 </div>
             </div>
