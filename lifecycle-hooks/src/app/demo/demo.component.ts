@@ -1,11 +1,11 @@
-import { Component, ContentChild, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, Component, ContentChild, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit{
+export class DemoComponent implements OnChanges, OnInit, AfterContentChecked{
   @Input() message : string = "";
 
   @ViewChild('demo_p') demoChild : ElementRef;
@@ -39,6 +39,12 @@ export class DemoComponent implements OnChanges, OnInit{
 
   ngAfterContentInit(){
     console.log("After Content Init hook");
+    //console.log(this.demoChild.nativeElement.value);
+    
+  }
+
+  ngAfterContentChecked(){
+    console.log("After Content Checked Hook");
     console.log(this.demoChild.nativeElement.value);
     
   }
