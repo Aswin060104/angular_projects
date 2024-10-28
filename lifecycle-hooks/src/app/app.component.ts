@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lifecycle-hooks';
+  title :string = 'lifecycle-hooks';
+
+  constructor(){
+    console.log("App constructor is called");
+  }
 }

@@ -19,7 +19,7 @@ export class ProductListComponent {
   Allcourses : {id : number, name : string, available : boolean, imageLocation : string, description : string, reference : string}[] = [];
 
 
-  constructor( private register : Registered){ // to avoid tight coupling
+  constructor( private readonly register : Registered){ // to avoid tight coupling
 
   }
 
