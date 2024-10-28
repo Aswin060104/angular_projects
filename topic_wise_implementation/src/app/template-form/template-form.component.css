@@ -63,7 +63,7 @@ button:hover{
     background-color: rgb(255, 102, 0);
     transition: 0.3s;
 }
-input.ng-invalid.ng-dirty{
+input.ng-invalid.ng-touched{
     box-shadow: 0 0 5px rgb(104, 76, 24);
     outline: none;
     border: orange solid 1px;
