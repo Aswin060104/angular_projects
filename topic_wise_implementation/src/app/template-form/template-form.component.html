@@ -1,25 +1,31 @@
 <div class="form-container">
-    <form class="form" (ngSubmit) = "register(registrationForm)" #registrationForm = "ngForm">
+    <form class="form" (ngSubmit)="register(registrationForm)" #registrationForm="ngForm">
         <h2>Registration From</h2>
         <div class="column">
             <div class="column">
                 <div class="row">
-                    <input type="firstName" name="firstName" id="firstName" placeholder="First Name" ngModel required>
-                    <input type="lastName" name="lastName" id="lastName" placeholder="Last Name" ngModel required>
+                    <div class="column">
+                        <input type="firstName" name="firstName" id="firstName" placeholder="First Name" ngModel required #fname="ngModel">
+                        <span *ngIf="fname.invalid && fname.dirty">*Enter your First Name </span>
+                    </div>
+                    <div class="column">
+                        <input type="lastName" name="lastName" id="lastName" placeholder="Last Name" ngModel required #lname = "ngModel">
+                        <span *ngIf="lname.invalid && lname.dirty">*Enter your Last Name </span>
+                    </div>
                 </div>
                 <div class="column">
                     <input type="email" name="email" placeholder="Enter Email" ngModel required email>
                 </div>
             </div>
-            
+
             <div class="column">
                 <div class="column">
                     <div>
-                         Profession
+                        Profession
                         <input type="radio" name="Profession" value="Staff" id="Staff" ngModel>
-                        <label for="Staff">Staff</label> 
+                        <label for="Staff">Staff</label>
                         <input type="radio" name="Profession" value="Student" id="Student" ngModel>
-                        <label for="Student">Student</label>  
+                        <label for="Student">Student</label>
                     </div>
                 </div>
                 <div class="row">
@@ -27,22 +33,31 @@
                 </div>
                 <div class="column">
                     <div class="row">
-                        <select name="country" ngModel >
-                            <option hidden >Country</option>
-                            <option value="india">India</option>
-                            <option value="australia">Australia</option>
-                            <option value="england">England</option>
-                        </select>
-                        <input type="text" placeholder="State" name="State" id="State" ngModel>
+                        <div class="column">
+                            <select name="country" ngModel>
+                                <option hidden value="">Country</option>
+                                <option value="india">India</option>
+                                <option value="australia">Australia</option>
+                                <option value="england">England</option>
+                            </select>
+                        </div>
+                        <div class="column">
+                            <input type="text" placeholder="State" name="State" id="State" ngModel>
+                        </div>
                     </div>
                     <div class="row">
-                        <input type="text" name="district" id="" placeholder="District" ngModel>
-                        <input type="number" name="pinCode" id="" placeholder="Pin Code"ngModel>
+                        <div class="column">
+                            <input type="text" name="district" id="" placeholder="District" ngModel>
+                        </div>
+                        <div class="column">
+                            <input type="number" name="pinCode" id="" placeholder="Pin Code" ngModel>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                    <button type="submit" [ngStyle]="{'cursor' : registrationForm.invalid ? 'not-allowed' : 'pointer'}">Submit</button>
+                <button type="submit"
+                    [ngStyle]="{'cursor' : registrationForm.invalid ? 'not-allowed' : 'pointer'}">Submit</button>
             </div>
         </div>
     </form>
