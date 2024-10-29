@@ -8,7 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title :string = 'Project';
 
+  messageParent : string = "";
+
   constructor(){
     console.log("App constructor is called");
+  }
+
+  updateMessage( message : HTMLInputElement){
+    this.messageParent = message.value;
   }
 }

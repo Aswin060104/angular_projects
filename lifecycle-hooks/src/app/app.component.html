@@ -1,7 +1,8 @@
 <div>
- 
-  <app-demo [message] = "title">
-    <p #para>This is from parent</p>
+  <input type="text" #myInput (focus)="0">
+  <button (click)="updateMessage(myInput)">Submit</button>
+  <app-demo [message] = "messageParent">
+    <p #para>User entered : {{ messageParent }}</p>
   </app-demo>
   
 </div>
