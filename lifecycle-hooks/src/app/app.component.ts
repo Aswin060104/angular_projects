@@ -14,7 +14,10 @@ export class AppComponent {
     console.log("App constructor is called");
   }
 
+  display : boolean = false;
+  
   updateMessage( message : HTMLInputElement){
     this.messageParent = message.value;
+    this.display = !this.display;
   }
 }

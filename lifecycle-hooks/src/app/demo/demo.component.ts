@@ -1,11 +1,11 @@
-import { AfterContentChecked, Component, ContentChild, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, Component, ContentChild, ElementRef, Input, OnChanges, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit{
+export class DemoComponent implements OnChanges, OnInit, OnDestroy{
   @Input() message : string = "";
 
   @ViewChild('demo_p') demoChild : ElementRef;
@@ -58,5 +58,10 @@ export class DemoComponent implements OnChanges, OnInit{
   ngAfterViewChecked(){
     console.log("Child ngAfter View Checked");
     console.log("Demo element in  the view Checked ",this.demoChild.nativeElement);
+  }
+  
+  ngOnDestroy(){
+    console.log("On Destroyes is called");
+    
   }
 }

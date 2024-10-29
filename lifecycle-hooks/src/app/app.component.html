@@ -1,7 +1,7 @@
 <div>
   <input type="text" #myInput (focus)="0">
-  <button (click)="updateMessage(myInput)">Submit</button>
-  <app-demo [message] = "messageParent">
+  <button (click)="updateMessage(myInput)">View / Hide</button>
+  <app-demo [message] = "messageParent" *ngIf="display">
     <p #para>User entered : {{ messageParent }}</p>
   </app-demo>
   
