@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, ContentChild, ElementRef, Input, OnChanges, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ContentChild, ElementRef, Input, OnChanges, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
