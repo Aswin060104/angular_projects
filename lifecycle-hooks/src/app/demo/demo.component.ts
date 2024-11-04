@@ -61,7 +61,7 @@ export class DemoComponent implements OnChanges, OnInit, OnDestroy{
   }
   
   ngOnDestroy(){
-    console.log("On Destroyes is called");
+    console.log("On Destroys is called");
     
   }
 }

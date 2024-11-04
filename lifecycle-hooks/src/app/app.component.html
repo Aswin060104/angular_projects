@@ -1,8 +1,9 @@
-<div>
+<!-- 
+ <div>
   <input type="text" #myInput (focus)="0">
   <button (click)="updateMessage(myInput)">View / Hide</button>
   <app-demo [message] = "messageParent" *ngIf="display">
     <p #para>User entered : {{ messageParent }}</p>
   </app-demo>
-  
-</div>
+</div> -->
+<app-products [laptop]="laptops"> Hi</app-products>

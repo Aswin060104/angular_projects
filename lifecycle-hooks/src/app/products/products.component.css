@@ -1,0 +1,54 @@
+.container{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+.card{
+    z-index: 10;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    border-color: orange;
+    border: 1px solid;
+}
+.card-offer{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: orange;
+    padding: 5px 15px;
+    border-top-left-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card-offer img{
+    width: 30px;
+}
+.card-img{
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center
+}
+.card-img :nth-child(1){
+    aspect-ratio: 4/3;
+}
+.card-details{
+    background-color: rgb(231, 176, 24);
+    padding: 10px;
+    border-radius: inherit;
+}
+button{
+    background-color:#0B192C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+}
+.button-class{
+    display: flex;
+    gap: 10px;
+}

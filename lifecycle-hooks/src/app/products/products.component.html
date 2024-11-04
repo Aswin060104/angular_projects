@@ -1,0 +1,27 @@
+<div class="container">
+    <ng-container *ngFor="let product of laptop">
+        <div class="card">
+            <div class="card-img">
+                    <img [src]="product.imgLoc" alt="">    
+                <div class="card-offer" *ngIf = "product.discountPercentage; else noDiscount;">
+                    <h4 style="margin: 0px;"> offer {{product.discountPercentage}}</h4>
+                    <img src="assets\images\price.png" alt="">
+                </div>
+                <ng-template #noDiscount>
+                    <div class="card-offer">
+                        No Offer
+                    </div>
+                </ng-template>
+            </div>
+            <div class="card-details">
+                <h1 style="margin: 0px;">Vivobook</h1>
+                <p>A laptop is a portable computer with a built-in screen, keyboard, and battery, used for work, gaming, or
+                    browsing.</p>
+                    <div class="button-class">
+                        <button>View Details</button>
+                        <button>Order</button>
+                    </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
