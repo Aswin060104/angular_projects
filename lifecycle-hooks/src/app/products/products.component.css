@@ -6,49 +6,51 @@
     align-items: stretch;
 }
 .card{
-    z-index: 10;
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
-    border-color: orange;
     border: 1px solid;
 }
 .card-offer{
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: orange;
+    background-color: #8FD14F;
     padding: 5px 15px;
-    border-top-left-radius: 15px;
+    border-top-left-radius: 14px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-bottom-right-radius: 15px;
 }
 .card-offer img{
-    width: 30px;
+    width: 20px;
+
 }
 .card-img{
     padding: 15px;
     position: relative;
     display: flex;
     justify-content: center;
-    height: 60%;
-    background-color: rgb(192, 156, 156);
-    border-radius: inherit;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
 }
 #laptop-img{
     aspect-ratio: 3/2;
+    mix-blend-mode: color-burn;
+    flex: 1;
 }
 .card-details{
-    background-color: rgb(231, 176, 24);
+    background-color:#FF6600;
     padding: 10px;
-    border-radius: inherit;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
     margin-bottom: 0px;
-    height: 40%;
+    height: 50%;
 }
 button{
-    background-color:#0B192C;
+    background-color:#604CC3;
     color: white;
     padding: 10px 20px;
     border: none;
