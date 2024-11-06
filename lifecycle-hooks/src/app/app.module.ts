@@ -7,6 +7,8 @@ import { DemoComponent } from './demo/demo.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+import { PriceFilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { NavbarComponent } from './navbar/navbar.component';
     DemoComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    PriceFilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,4 +15,6 @@ export class ProductsComponent {
     {name : "HP Pavilion", price : 38000, discount : 0.20, discountPercentage : "20%", imgLoc : "assets/images/hp-pavilion-360.png", description : "A laptop is a portable computer with a built-in screen, keyboard, and battery, used for work, gaming, or browsing."},
     {name : "ASUS", price : 56000,discount : 0.15, discountPercentage : "15%", imgLoc : "assets/images/asus.png", description : "A laptop is a portable computer with a built-in screen, keyboard, and battery, used for work, gaming, or browsing."},
   ]
+
+  selectedPrice : number = 100;
 }

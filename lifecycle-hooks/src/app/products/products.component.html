@@ -1,5 +1,13 @@
+<div class="search-bar">
+    <select name="prices" [(ngModel)]="selectedPrice">
+        <option selected disabled value="">Select Price</option>
+        <option value="15000"> > 15000 </option>
+        <option value="40000" > > 40000 </option>
+        <option value="70000" > > 70000 </option>
+    </select>
+</div>
 <div class="container">
-    <ng-container *ngFor="let product of laptop">
+    <ng-container *ngFor="let product of laptop | PriceFilter : selectedPrice ">
         <div class="card">
             <div class="card-img">
                 <img [src]="product.imgLoc" alt="" id="laptop-img">
