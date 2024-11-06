@@ -1,13 +1,11 @@
-<!-- 
- <div>
+
+ <!-- <div>
   <input type="text" #myInput (focus)="0">
   <button (click)="updateMessage(myInput)">View / Hide</button>
   <app-demo [message] = "messageParent" *ngIf="display">
     <p #para>User entered : {{ messageParent }}</p>
   </app-demo>
 </div> -->
-<!-- <router-outlet></router-outlet> -->
 <div class="content">
-  <app-products  [laptop]="laptops"></app-products>
-  <!-- <app-products [laptop]="laptops"> Hi</app-products> -->
+  <router-outlet></router-outlet>
 </div>

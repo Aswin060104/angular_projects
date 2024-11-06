@@ -19,6 +19,10 @@
                         <b>Price : </b> {{product.price | currency : "INR" : true : "2.0-2"}}
                     </p>
                 </ng-template>
+                <div *ngIf="product.stockAvailable">
+                    Stock Available after : {{product.stockAvailable | date }}
+                </div>
+                <br>
                 <div class="button-class">
                     <button>View Details</button>
                     <button>Order</button>

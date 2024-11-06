@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,9 +8,10 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateFormComponent {
 
-  
-
   register(form : NgForm){
     console.log(form);
+    console.log(this.profession);
+    
   }
+  profession : string ;
 }

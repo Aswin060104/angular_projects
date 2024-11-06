@@ -4,6 +4,7 @@ export class Laptop{
     discount? : number;
     discountPercentage? : string;
     imgLoc : string;
+    stockAvailable? : Date;
     description : string;
 }
     

@@ -22,16 +22,27 @@
                 <div class="column">
                     <div>
                         Profession
-                        <input type="radio" name="Profession" value="Staff" id="Staff" ngModel>
+                        <input type="radio" name="Profession" value="Staff" id="Staff" [(ngModel)]="profession">
                         <label for="Staff">Staff</label>
-                        <input type="radio" name="Profession" value="Student" id="Student" ngModel>
+                        <input type="radio" name="Profession" value="Student" id="Student" [(ngModel)]="profession">
                         <label for="Student">Student</label>
+                    </div>
+                </div>
+                <div *ngIf="profession == 'Student' " class="column">
+                    <div class="row">
+                        <div class="column">
+                            <input type="firstName" name="collegeName" id="collegeName" placeholder="College Name" ngModel required #collegeName = "ngModel">
+                        </div>
+                        <div class="column">
+                            <input type="lastName" name="courseName" id="courseName" placeholder="Course Name" ngModel required #courseName = "ngModel">
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <input type="text" name="address" id="address" placeholder="Address" ngModel>
                 </div>
-                <div class="column">
+                
+                <div class="column" ngModelGroup>
                     <div class="row">
                         <div class="column">
                             <select name="country" ngModel>
@@ -50,7 +61,7 @@
                             <input type="text" name="district" id="" placeholder="District" ngModel>
                         </div>
                         <div class="column">
-                            <input type="number" id="" placeholder="Pin Code">
+                            <input type="number" id="" placeholder="Pin Code" name="pincode" ngModel>
                         </div>
                     </div>
                 </div>

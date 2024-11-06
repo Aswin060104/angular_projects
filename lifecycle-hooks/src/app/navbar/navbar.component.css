@@ -9,6 +9,7 @@ nav{
     flex-direction: row;
     align-items: center;
     padding: 30px;
+    font-family: 'Times New Roman', Times, serif;
 }
 .nav-left{
     gap: 10px;
@@ -49,6 +50,7 @@ a:hover::after{
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 h1{
     color: #5A72A0;
@@ -100,4 +102,11 @@ h1{
     75%{margin-top: -132px;}
     95%{margin-top: -132px;}
     100%{margin-top: -210px;}
+}
+p{
+    font-size: 12px;
+}
+.content-container{
+    background-image: url("src/assets/images/laptop-bg.jpg");
+    height: 100vh;
 }

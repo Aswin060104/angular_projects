@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './product/product.component';
-import { AdminComponent } from './services/admin/admin.component';
 import { UserComponent } from './services/user/user.component';
 import { ServicesComponent } from './services/services.component';
-import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
