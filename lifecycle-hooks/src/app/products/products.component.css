@@ -1,3 +1,21 @@
+.filter-bar{
+    background-color: rgb(212, 174, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+select{
+    border-radius: 5px;
+    width: 50%;
+    height: 25px;
+    outline: none;
+}
+select:focus{
+    border: blue 1px solid;
+    box-shadow: 0px 0px 5px rgb(152, 152, 163);
+}
 .container{
     padding: 10px;
     display: grid;

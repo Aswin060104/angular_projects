@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { ProductsComponent } from './products/products.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { PriceFilterPipe } from './pipes/filter.pipe';
@@ -15,7 +14,6 @@ import { PriceFilterPipe } from './pipes/filter.pipe';
     AppComponent,
     DemoComponent,
     ProductsComponent,
-    ProductDetailsComponent,
     NavbarComponent,
     PriceFilterPipe
   ],
