@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class ObservableComponent {
 
-  data : number[] = [];
+  data : string[] = [];
 
   observable = new Observable( (observer) => {
     setTimeout(() => { observer.next(1); }, 1000); 
@@ -20,7 +20,7 @@ export class ObservableComponent {
   });
 
   getAsyncData(){
-    this.ofObservable.subscribe((val : number) => {
+    this.fromObservable.subscribe((val : string) => {
 
       this.data.push(val);
       console.log(val);
@@ -32,4 +32,5 @@ export class ObservableComponent {
 
   ofObservable = of(...[1,2,3],["Aswin","Raja"]);
 
+  fromObservable = from(["Aswin","Arul","Sugu","Rahul"]);
 }
