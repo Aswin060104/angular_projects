@@ -1,0 +1,51 @@
+.container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+.container-heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+}
+.container-heading select{
+    position: absolute;
+    right: 10px;
+    height: 35px;
+    outline: none;
+    background-color: inherit;
+    color: white;
+    padding: 0px 40px;
+    border-radius: 10px;
+}
+.container-heading select option{
+    background-color: gray;
+    color: white;
+}
+.table-content{
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgb(53, 49, 49)
+}
+.table-content tr{
+    background-color: rgb(61, 57, 57);
+}
+.table-content thead{
+    background-color: rgb(89, 86, 100);
+}
+.table-content tr td, .table-content thead th{
+    padding: 10px 40px;
+}
+.table-content tr:nth-child(even){
+    background-color: rgb(48, 48, 48);
+}
+th{
+    padding: 30px;
+}
