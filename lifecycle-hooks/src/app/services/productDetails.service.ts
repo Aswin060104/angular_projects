@@ -4,7 +4,7 @@ import { Laptop } from "../Models/laptop";
 @Injectable({
     providedIn : 'root'
 })
-export class productDetails{
+export class ProductDetails{
     laptops : Laptop[] = [
     {name : "Asus-Vivobook", price : 95000, discount : 0.10, discountPercentage : "10%", imgLoc : "assets/images/asus-vivobook.png", stockAvailable : new Date(2024,11,24), description : "A laptop is a portable computer with a built-in screen, keyboard, and battery, used for work, gaming, or browsing gaming, or browsing.."},
     {name : "Lenovo", price : 67000, imgLoc : "assets/images/lenovo.png", description : "A laptop is a portable computer with a built-in screen, keyboard, and battery, used for work, gaming, or browsing."},

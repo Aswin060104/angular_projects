@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Laptop } from '../Models/laptop';
-import { productDetails } from '../services/productDetails.service';
+import { ProductDetails } from '../services/productDetails.service';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +9,7 @@ import { productDetails } from '../services/productDetails.service';
 })
 export class ProductsComponent {
 
-  laptopDetails = inject(productDetails);
+  laptopDetails = inject(ProductDetails);
 
   laptop : Laptop[] = this.laptopDetails.getProductDetails();
 

@@ -3,11 +3,14 @@
         <h2>
             Student Details
         </h2>
-        <select name="stream-values" [(ngModel)]="selectedValue" (change)="optionChanged()">
-            <option value="All">All</option>
-            <option value="CSE">CSE</option>
-            <option value="ECE">ECE</option>
-        </select>
+        <div class="filter-content">
+            <select name="stream-values" [(ngModel)]="selectedValue" (change)="optionChanged()">
+                <option value="All">All</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+            </select>
+            <img src="assets\images\add.png" alt="add-user" onClick="addUser(0)">
+        </div>
     </div>
     <div class="table-container">
         <table class="table-content">
@@ -19,6 +22,14 @@
                 <th>Marks</th>
                 <th>Percentage</th>
             </thead>
+            <tr *ngIf="enableInputFields">
+                <td></td>
+                <td><input type="text" [(ngModel)]="name" placeholder="Name"></td>
+                <td><input type="date" [(ngModel)]="dob" placeholder="DOB"></td>
+                <td><input type="text" [(ngModel)]="stream" placeholder="Stream"></td>
+                <td> <input type="number" [(ngModel)]="mark" placeholder="Mark"></td>
+                <td><button style="padding: 5px 15px; " (click)="addUser(1)">Add</button></td>
+            </tr>
             <ng-container *ngFor="let std of students; let i = index">
                 <tr>
                     <td>{{i + 1}}</td>

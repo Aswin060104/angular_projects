@@ -15,14 +15,23 @@
     position: relative;
 }
 .container-heading select{
-    position: absolute;
-    right: 10px;
     height: 35px;
     outline: none;
     background-color: inherit;
     color: white;
     padding: 0px 40px;
     border-radius: 10px;
+}
+.filter-content{
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.filter-content img{
+    width: 20px;
 }
 .container-heading select option{
     background-color: gray;
@@ -48,4 +57,12 @@
 }
 th{
     padding: 30px;
+}
+td{
+    width: max-content;
+}
+input{
+    width: 100px;
+    padding: 2px 10px;
+    outline: none;
 }

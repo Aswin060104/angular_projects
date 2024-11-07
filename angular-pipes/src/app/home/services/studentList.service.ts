@@ -23,4 +23,8 @@ export class StudentList {
             });
         }
     }
+
+    addNewStudent(name, dob : Date, stream, mark){
+        this.students.push(new Student(name,dob,stream, mark));
+    }
 }
