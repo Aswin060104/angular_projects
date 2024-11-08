@@ -1,6 +1,11 @@
-<div style="background-color: white;">
-    <div *ngFor="let i of data">
-        {{i}}
+<div class="outer-container">
+    <!-- <div *ngFor="let i of data">
+        <div class="container">
+            {{i}}
+        </div>
+    </div> -->
+    <div id="contentDiv">
+
     </div>
-    <button (click)="getAsyncData()">Get Data</button>
+    <button (click)="getAsyncData()" #dataButton >Get Data</button>
 </div>
