@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { from, fromEvent, Observable, of } from 'rxjs';
+import { filter, from, fromEvent, map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
@@ -10,7 +10,7 @@ export class ObservableComponent implements AfterViewInit{
 
   @ViewChild('dataButton') dataButton : ElementRef;
 
-  data : string[] = [];
+  data : number[] = [];
 
   buttonObs;
 
@@ -24,19 +24,34 @@ export class ObservableComponent implements AfterViewInit{
   });
 
   getAsyncData(){
-    this.fromObservable.subscribe((val : string) => {
+    // this.fromObservable.subscribe((val : number) => {
 
-      this.data.push(val);
-      //console.log(val);
+    //   this.data.push(val);
+    //   //console.log(val);
       
-    }, ()=>{}, () => {
-      //alert("All data are received")
-    })  
+    // }, ()=>{}, () => {
+    //   //alert("All data are received")
+    // })  
+
+    this.fromObservable.subscribe({
+      next(value : number){
+        console.log(value);
+      }, 
+      error(){
+
+      }, 
+      complete(){
+
+      }
+    })
   }
 
   ofObservable = of(...[1,2,3],["Aswin","Raja"]);
 
-  fromObservable = from(["Aswin","Arul","Sugu","Rahul"]);
+  fromObservable = from([1,2,3,4,5]).pipe(
+    filter( (e) => {
+    return e % 2 == 0;
+  }));
 
   count = 0;
 
@@ -50,7 +65,7 @@ export class ObservableComponent implements AfterViewInit{
   }
 
   ngAfterViewInit(){
-    this.buttonClicked();
+    //this.buttonClicked();
   }
   
   createDiv(){
@@ -58,7 +73,7 @@ export class ObservableComponent implements AfterViewInit{
     div.innerText = 'Item ' + this.count++;
 
     div.className = "container";
-    
+
     document.getElementById('contentDiv').className = "container";
 
     document.getElementById("contentDiv").appendChild(div);

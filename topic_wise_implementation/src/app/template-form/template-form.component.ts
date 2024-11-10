@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,30 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateFormComponent {
 
-  register(form : NgForm){
-    console.log(form);
-    console.log(this.profession);
+  @ViewChild('registrationForm') form : NgForm;
+
+  register(){
+    console.log(this.form);
+    console.log(this.form.controls['profession']);
+
+
+    // this.form.setValue({
+    //   firstName : "Aswin",
+    //   lastName : "T",
+    //   email : "trajaaswin@gmail.com",
+    //   Profession : "staff",
+    //   address : "123",
+    //   more-details : {
+
+    //   }
+    // });
+
+    this.form.form.patchValue({
+      firstName : "Aswin"
+    })
     
   }
   profession : string ;
+
+  
 }

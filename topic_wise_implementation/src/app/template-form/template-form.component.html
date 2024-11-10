@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form class="form" (ngSubmit)="register(registrationForm)" #registrationForm="ngForm">
+    <form class="form" (ngSubmit)="register()" #registrationForm="ngForm">
         <h2>Registration From</h2>
         <div class="column">
             <div class="column">
@@ -42,7 +42,7 @@
                     <input type="text" name="address" id="address" placeholder="Address" ngModel>
                 </div>
                 
-                <div class="column" ngModelGroup>
+                <div class="column" ngModelGroup="more-details">
                     <div class="row">
                         <div class="column">
                             <select name="country" ngModel>
