@@ -94,8 +94,8 @@ a{
     top: 0;
     left: 0;
     padding: 10px;
-    border-right: 1px solid black;
     overflow-y: scroll;
+    z-index: 3;
 }
 ::-webkit-scrollbar{
     width: 5px;
@@ -162,12 +162,17 @@ a{
     padding: 0px;
     margin: 0px;
 }
+.main-content-container{
+    max-width: 900px;
+}
 .small-headings{
     font-weight: bold;
     gap: 20px;
+    border-radius: 5px;
 }
 .small-headings img{
     height: 20px;
+    border-radius: 5px;
 }
 .small-headings a{
     font-size: 18px;
@@ -187,10 +192,11 @@ a{
 }
 .content-description-bottom{
     display: flex;
-    flex-direction: column;
-    row-gap: 20px;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
 }
-.subscribe-container{
+.content-description-bottom-left{
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -209,4 +215,51 @@ a{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+}
+.join-button{
+    background-color: black;
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: white;
+    border: none;
+}
+.content-description-bottom-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.description-button{
+    display: flex;
+    align-items: center;
+    background-color: rgb(227, 238, 241);
+    padding: 10px 15px;
+    gap: 10px;
+    border-radius: 50px;
+}
+.description-button img{
+    height:20px;
+}
+.description-button button{
+    all: unset;
+    background-color: inherit;
+}
+.subscription-dropdown{
+    border: none;
+    border-color: inherit solid 1px;
+    background-color: inherit;
+    outline: none;
+    padding: 0px 40px;
+}
+.subscription-dropdown option{
+    padding: 10px;
+    border-radius: 5px;
+}
+option{
+    padding: 10px;
+    border-radius: 5px;
+ background-color: rgb(255, 255, 255);   
+}
+option:hover{
+    background-color: rgb(214, 228, 233);
 }
