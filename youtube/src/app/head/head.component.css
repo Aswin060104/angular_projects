@@ -102,9 +102,9 @@ p{
     background-color: rgb(222, 230, 233);
 }
 .sidebar{
-    height: 100vh;
+    height: 100svh;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -368,4 +368,17 @@ option:hover{
 }
 .active{
     background-color: rgb(184, 216, 226);
+}
+/* .coverall{
+    display: none; 
+} */
+.coverall{
+    z-index:2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity to control the dim effect */
+    z-index: 2;
 }
