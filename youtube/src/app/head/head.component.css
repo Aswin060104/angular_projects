@@ -5,12 +5,18 @@ a{
     font-weight: 500;
     font-size: 14px;
 }
+h3{
+    margin: 0px;
+    padding: 0px;
+}
+p{
+    margin: 0px;
+}
 .head{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 10px;
 }
 .head img, #menu{
     height: 30px;
@@ -44,16 +50,21 @@ a{
 .search-bar input{
     width: 500px;
     height: inherit;
-    padding: 0px;
+    padding: 0px 10px;
     outline: none;
+    font-size: 16px;
     border: 1px solid rgb(154, 154, 192);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-right: none;
 }
 .search-bar input::placeholder{
-    padding: 15px;
     font-size: 16px;
+}
+.search-bar input:focus{
+    outline: auto;
+    outline-color: lightblue;
+    box-shadow: inset 1px 1px 1px 0px rgb(159, 198, 211);
 }
 .search-img-container{
     border: 1px rgb(154, 154, 192) solid;
@@ -63,6 +74,8 @@ a{
     border-bottom-right-radius: 20px;
     display: flex;
     align-items: center;
+    width: 25px;
+    justify-content: center;
 }
 .search-img-container img{
     height: 25px;
@@ -70,6 +83,7 @@ a{
 .mic-container{
     display: flex;
     align-items: center;
+    width: 50px;
 }
 .mic-container img{
     background-color: rgb(240, 240, 240);
@@ -84,7 +98,7 @@ a{
 .head-right img{
     height: 25px;
 }
-#notification:hover, #video:hover, #mic:hover, #menu:hover, .search-img-container:hover{
+#notification:hover, #video:hover, #mic:hover, #menu:hover, .search-img-container:hover, #loop:hover, #shuffle:hover{
     background-color: rgb(222, 230, 233);
 }
 .sidebar{
@@ -93,6 +107,7 @@ a{
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
     padding: 10px;
     overflow-y: scroll;
     z-index: 3;
@@ -162,6 +177,12 @@ a{
     padding: 0px;
     margin: 0px;
 }
+.container{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
 .main-content-container{
     max-width: 900px;
 }
@@ -178,7 +199,6 @@ a{
     font-size: 18px;
 }
 .playing-content{
-    padding: 20px;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -218,7 +238,7 @@ a{
 }
 .join-button{
     background-color: black;
-    padding: 5px 15px;
+    padding: 10px 20px;
     border-radius: 50px;
     color: white;
     border: none;
@@ -249,11 +269,7 @@ a{
     border-color: inherit solid 1px;
     background-color: inherit;
     outline: none;
-    padding: 0px 40px;
-}
-.subscription-dropdown option{
-    padding: 10px;
-    border-radius: 5px;
+    padding: 0px 10px;
 }
 option{
     padding: 10px;
@@ -262,4 +278,94 @@ option{
 }
 option:hover{
     background-color: rgb(214, 228, 233);
+}
+.suggestion-container{
+    display: flex;
+    flex-direction: column;
+    row-gap:5px;
+    padding: 10px 0px;
+    width: max-content;
+    border: solid 1px lightblue;
+    box-shadow: 1px 1px 3px 1px rgb(222, 229, 231);
+    border-radius: 10px;
+}
+.suggestion-card-container{
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    overflow-y: scroll;
+    padding: 10px 0px;
+}
+.suggestion-heading{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px 0px 25px;
+    gap: 3px;
+}
+.suggestion-heading p{
+    font-size: 14px;
+}
+.suggestion-heading-imgs{
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 15px;
+}
+.suggestion-heading-imgs img{
+    height: inherit;
+    padding: 10px;
+    border-radius: 50%;
+}
+.suggestion-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 0px;
+    width: 420px;
+}
+.suggestion-card span{
+    align-content: center;
+    padding-left: 5px;
+    width: 30px;
+}
+.suggestion-card span img{
+    height: 10px;
+}
+.suggestion-card:hover{
+    background-color: rgb(218, 231, 235);
+}
+.suggestion-card img{
+    height: 60px;
+    border-radius: 10px;
+}
+.suggestion-content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+/* .suggestion-content span{
+    display: -moz-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+.suggestion-content-par {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(54, 48, 48);
+    font-weight: 500;
+    font-size: 15px;
+    width: 250px;
+    font-weight: 100;
+}
+
+.suggestion-content small{
+    font-size: 12px;
+}
+.active{
+    background-color: rgb(184, 216, 226);
 }

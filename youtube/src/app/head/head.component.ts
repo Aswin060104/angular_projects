@@ -31,4 +31,22 @@ export class HeadComponent {
       img.style.opacity = '0.3';
     }
   }
+
+  activeCard : number = 0;
+  makeActive(val : number){
+    this.activeCard = val;
+  }
+
+  courseDetails = [
+    {name : "Introduction to Angular"},
+    {name : "Basics of Components"},
+    {name : "Structural Directives - ngFor, ngIf and ngSwitch"},
+    {name : "Structural Directives - ngClass and ngStyle"},
+    {name : "Services and providers"},
+    {name : "Angular Forms"},
+    {name : "Template Driven Forms"},
+    {name : "Reactive Forms"},
+    {name : "Routing and parameters"},
+    {name : "Observables and its method"}
+  ]
 }

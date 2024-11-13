@@ -1,23 +1,108 @@
-<div class="head" id="head">
-    <div class="head-left">
-        <img src="assets\images\menu.png" alt="" style="height: 25px;" id="menu" (click)="showSidebar()">
-        <img src="assets\images\youtube.png" alt="" id="youtube">
-    </div>
-    <div class="head-center">
-        <div class="search-bar">
-            <input type="text" placeholder="Search">
-            <div class="search-img-container">
-                <img src="assets\images\search.png" alt="">
+<div id="main-content-container" style="overflow: hidden; top: 0;">
+    <div class="head" id="head">
+        <div class="head-left">
+            <img src="assets\images\menu.png" alt="" style="height: 25px;" id="menu" (click)="showSidebar()">
+            <img src="assets\images\youtube.png" alt="" id="youtube">
+        </div>
+        <div class="head-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <div class="search-img-container">
+                    <img src="assets\images\search.png" alt="">
+                </div>
+            </div>
+            <div class="mic-container">
+                <img src="assets\images\mic.png" alt="" id="mic">
             </div>
         </div>
-        <div class="mic-container">
-            <img src="assets\images\mic.png" alt="" id="mic">
+        <div class="head-right">
+            <img src="assets\images\video.png" alt="" id="video">
+            <img src="assets\images\notification.png" alt="" id="notification">
+            <img src="assets\images\profile.png" alt="" style="height: 30px;">
         </div>
     </div>
-    <div class="head-right">
-        <img src="assets\images\video.png" alt="" id="video">
-        <img src="assets\images\notification.png" alt="" id="notification">
-        <img src="assets\images\profile.png" alt="" style="height: 30px;">
+    <div class="container">
+        <div class="main-content-container" id="main-content-container">
+            <div class="playing-content">
+                <div class="playing-content-img">
+                    <img src="assets\images\content.png" alt="" id="content">
+                </div>
+                <div class="content-description">
+                    <div class="content-description-top">
+                        #01 Introduction to Angular | Getting Started with Angular | A complete Angular Course
+                    </div>
+                    <div class="content-description-bottom">
+                        <div class="content-description-bottom-left">
+                            <div class="subscribe">
+                                <img src="assets\images\code.png" alt="">
+                            </div>
+                            <div class="subscribe-details">
+                                <small class="small-headings"> proacademy</small>
+                                <small> 57.4k subscribers</small>
+                            </div>
+                            <button class="join-button">Join</button>
+                            <div class="description-button">
+                                <img src="assets\images\shorts.png" alt="">
+                                <button>
+                                    <select name="" class="subscription-dropdown">
+                                        <option value="">Subscribe</option>
+                                        <option value="">All</option>
+                                        <option value="">None</option>
+                                        <option value="">Personalized</option>
+                                        <option value="">unsubscribe</option>
+                                    </select>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="content-description-bottom-right">
+                            <div class="description-button">
+                                <img src="assets\images\like.png" alt="">
+                                <button>2.2k</button>
+                                <img src="assets\images\unlike.png" alt="">
+                            </div>
+                            <div class="description-button">
+                                <img src="assets\images\share.png" alt="">
+                                <button>Share</button>
+                            </div>
+                            <div class="description-button">
+                                <img src="assets\images\download.png" alt="">
+                                <button>Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="suggestion-container">
+            <div>
+                <div class="suggestion-heading">
+                    <h3>Mastering Angular 16</h3>
+                    <p>procamedy - {{activeCard+1}} / 192</p>
+                </div>
+                <div class="suggestion-heading-imgs">
+                    <img src="assets\images\loop.png" alt="" id="loop">
+                    <img src="assets\images\shuffle.png" alt="" id="shuffle">
+                </div>
+            </div>
+            <div class="suggestion-card-container">
+                <ng-container *ngFor="let course of courseDetails; let i=index">
+                    <div class="suggestion-card" [ngClass]="{'active' : i == activeCard}" (click)="makeActive(i)">
+                        <span *ngIf="i != activeCard; else playImg">{{i+1}}</span>
+                        <ng-template #playImg>
+                            <span><img src="assets\images\play.png" alt=""></span>
+                        </ng-template>
+                        <img src="" alt="">
+                        <img src="assets\images\content.png" alt="" id="thumpnail">
+                        <div class="suggestion-content">
+                            <p class="suggestion-content-par">
+                                #{{i+1 | PrefixValue}} {{course.name}} | Getting Started with angular 
+                            </p>
+                            <small>procademy</small>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
     </div>
 </div>
 <div class="sidebar out" id="sidebar">
@@ -99,58 +184,6 @@
             <div class="link">
                 <img src="assets\images\mic.png" alt="">
                 <a href="">Liked Videos</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="main-content-container" id="main-content-container">
-    <div class="playing-content">
-        <div class="playing-content-img">
-            <img src="assets\images\content.png" alt="" id="content">
-        </div>
-        <div class="content-description">
-            <div class="content-description-top">
-                #01 Introduction to Angular | Getting Started with Angular | A complete Angular Course
-            </div>
-            <div class="content-description-bottom">
-                <div class="content-description-bottom-left">
-                    <div class="subscribe">
-                        <img src="assets\images\code.png" alt="">
-                    </div>
-                    <div class="subscribe-details">
-                        <small class="small-headings"> proacademy</small>
-                        <small> 57.4k subscribers</small>
-                    </div>
-                    <button class="join-button">Join</button>
-                    <div class="description-button">
-                        <img src="assets\images\shorts.png" alt="">
-                        <button>
-                            <select name="" class="subscription-dropdown">
-                                <option value="">Subscribe</option>
-                                <option value="">All</option>
-                                <option value="">None</option>
-                                <option value="">Personalized</option>
-                                <option value="">unsubscribe</option>
-                            </select>
-                        </button>
-                    </div>
-                </div>
-                <div class="content-description-bottom-right">
-                    <div class="description-button">
-                        <img src="assets\images\like.png" alt="">
-                        <button>2.2k</button>
-                        <img src="assets\images\like.png" alt="">
-                    </div>
-                    <div class="description-button">
-                        <img src="assets\images\shorts.png" alt="">
-                        <button>Share</button>
-                    </div>
-                    <div class="description-button">
-                        <img src="assets\images\shorts.png" alt="">
-                        <button>Download</button>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

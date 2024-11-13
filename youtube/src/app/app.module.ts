@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
 import { SidebarComponent } from './head/sidebar/sidebar.component';
+import { PrefixValuePipe } from './pipes/prefixValuePipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
-    SidebarComponent
+    SidebarComponent,
+    PrefixValuePipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
