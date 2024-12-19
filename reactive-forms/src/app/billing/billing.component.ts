@@ -26,11 +26,8 @@ export class BillingComponent {
   allProducts : Products[] = this.productDetailService.productDetails;
 
   ngOnInit() {
-    this.price.set(5001, 20);
-    this.price.set(5002, 25);
-    this.price.set(5003, 30);
-    this.price.set(5004, 40);
-    this.price.set(5005, 50);
+    for(var product of this.allProducts)
+      this.price.set(product.productId, product.price);
   }
   allPrices: number[] = [];
 
@@ -39,13 +36,13 @@ export class BillingComponent {
   totalBill: number = 0;
   showProductSpan: boolean = false;
 
-
   calculateBill() {
     this.totalBill = 0;
     for (let price of this.allPrices)
       this.totalBill += price;
     console.log(this.totalBill);
   }
+  
   addProduct(productId: HTMLInputElement, quantity: HTMLInputElement) {
     let singleProductPrice: number | undefined = this.price.get(parseInt(productId.value));
 
@@ -69,13 +66,12 @@ export class BillingComponent {
       this.productIdNotFound = false;
       this.invalidQuantity1 = false;
       this.invalidQuantity2 = false;
+      this.invalidQuantity3 = false;
       
       if (parseInt(productId.value) == 5004 || parseInt(productId.value) == 5005 && singleProductPrice) {
         singleProductPrice = singleProductPrice * 0.8;
         console.log("discount");
       }
-      
-      
 
       this.allProducts[indexOfPrice].stock -= parseInt(quantity.value);
       if (singleProductPrice)
