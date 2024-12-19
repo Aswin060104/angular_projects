@@ -20,8 +20,6 @@ export class ProductComponent {
     this.radioValue = value; 
   }
 
-  
-
   searchBarValue : string = "";
   
   enteredSearchBarValue(value : any){

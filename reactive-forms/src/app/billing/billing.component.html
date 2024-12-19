@@ -1,0 +1,68 @@
+<body>
+    <div class="product-description">
+        <h2>Items in the Store</h2>
+        <table>
+            <thead>
+                <th>S.No</th>
+                <th>Product Id</th>
+                <th>Price</th>
+                <th>Stock Remaining</th>
+                <th>Discount</th>
+            </thead>
+            <ng-container *ngFor="let product of allProducts">
+                <tr [ngClass]="{ 'discount-row' : product.discount}">
+                <td>{{product.productId}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td *ngIf="product.stock != 0; else noStocks">{{product.stock}}</td>
+                <ng-template #noStocks>
+                    <td>Stocks Unavaliable</td>
+                </ng-template>
+                <td *ngIf="product.discount; else noDiscount">{{product.discount | percent}}</td>
+                <ng-template #noDiscount>
+                    <td >-</td>
+                </ng-template>
+            </tr>
+            </ng-container>
+        </table>
+    </div>
+    <div class="form-container">
+        <form action="">
+            <h2>Billing</h2>
+                <input type="text" placeholder="Enter Product ID" #productId>
+                <span class="invalid-values" *ngIf="productIdNotFound"> *Product Id not found</span>
+                <input type="text" placeholder="Enter Quantity" #quantity>
+                <span class="invalid-values" *ngIf="invalidQuantity1">*Quantity can't be String</span>
+                <span class="invalid-values" *ngIf="invalidQuantity2"> *Quantity can't be Zero or Negative</span>
+                <span class="invalid-values" *ngIf="invalidQuantity3"> *Stocks unavaliable</span>
+                <div class="buttons-container">
+                    <button (click)="addProduct(productId, quantity)">Add Product</button>
+                    <button (click)="calculateBill()">Calculate Bill</button>
+                </div>
+                <span *ngIf="showProductSpan">Product added to cart</span>
+        </form>
+        <div class="products-container" *ngIf="purchasedProducts.length != 0">
+            <table>
+                <th colspan="5">Products Purchased</th>
+                <tr>
+                    <th>S.No</th>
+                    <th>Product Id</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+                <tr *ngFor="let product of purchasedProducts;let i = index;">
+                    <td>{{i + 1}}</td>
+                    <td>{{product.productId}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.quantitativePrice}}</td>
+                </tr>
+                <tr *ngIf="totalBill != 0">
+                    <td colspan="4" style="text-align: right;"><b>Total Price :</b> </td>
+                    <td><b>{{totalBill}}</b></td>
+                </tr>
+        </table>
+        </div>
+    </div>
+</body>

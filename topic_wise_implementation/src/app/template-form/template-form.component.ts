@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateFormComponent {
 
-  @ViewChild('registrationForm') form : NgForm;
+  @ViewChild('registrationForm') 
+  form : NgForm;
 
   register(){
     console.log(this.form);

@@ -1,0 +1,83 @@
+body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    padding: 30px;
+}
+.product-description{
+    text-align: center;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    border: solid black 1px;
+    padding: 15px;
+    box-shadow: 0px 0px 3px blue;
+    background-color: rgb(215, 224, 231);
+}
+form h2{
+    margin: 0px;
+}
+form > input{
+    width: 80%;
+    padding: 5px;
+    border: none;
+    background-color: rgb(237, 242, 245);
+    height: 30px;
+    margin-top: 15px;
+}
+form > input:focus{
+    box-shadow: 0 0 3px blue;
+    outline: none;
+}
+.buttons-container{
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.buttons-container button{
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.buttons-container :nth-child(1){
+    background-color: blue;
+}
+.buttons-container :nth-child(2){
+    background-color: green;
+}
+.invalid-values{
+    color: red;
+}
+table{
+    border-collapse: collapse;
+    background-color: rgb(207, 210, 211);
+    font-family: Arial, Helvetica, sans-serif; 
+}
+table tr, td, th {
+    padding: 10px 15px;
+}
+table tr:nth-child(odd){
+    background-color: rgb(189, 189, 194);
+}
+table tr:nth-child(even){
+    background-color: rgb(179, 179, 189);
+}
+table thead{
+    background-color: rgb(218, 206, 206);
+}
+.discount-row{
+    background-color: rgb(218, 221, 224);
+}

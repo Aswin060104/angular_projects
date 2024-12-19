@@ -7,7 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
-  { path : "course", component : ProductComponent},
+  { path : "", component : ProductComponent},
   { path : "details", component : ServicesComponent},
   { path : "register", component : UserComponent},
   { path : "course/selectedCourse", component : ProductDetailsComponent},

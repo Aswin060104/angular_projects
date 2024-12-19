@@ -13,7 +13,7 @@
                     <p>{{course.description}}</p>
                     <div class="card-details-button">
                         <button [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)" [routerLink] = "'/course/selectedCourse/'+ course.id"> Details</button>
-                        <button [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)" [routerLink] = "'/register'">Register</button>
+                        <button [routerLink]="'selectedCourse'" (click) = "selectedCourse(course.id)" [routerLink] = "'./register'">Register</button>
                     </div>
                     
                 </div>
