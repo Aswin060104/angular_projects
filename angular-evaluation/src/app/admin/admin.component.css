@@ -1,0 +1,39 @@
+table{
+    text-align: left;
+    border-collapse: collapse;
+    background-color: rgb(207, 210, 211);
+    font-family: Arial, Helvetica, sans-serif; 
+}
+table tr, td, th {
+    padding: 10px 15px;
+}
+table tr:nth-child(odd){
+    background-color: rgb(189, 189, 194);
+}
+table tr:nth-child(even){
+    background-color: rgb(179, 179, 189);
+}
+table thead{
+    background-color: rgb(218, 206, 206);
+}
+th img{
+    height: 10px;
+    filter: contrast(0%)
+}
+td button{
+    background-color: rgb(2, 138, 2);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+}
+th button{
+    color: white;
+    background-color: rgb(6, 4, 124);
+    padding: 5px;
+    padding: 5px 10px;
+    border: none;
+}
+td input{
+    width: 100px;
+}

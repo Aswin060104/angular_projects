@@ -1,0 +1,37 @@
+<div class="table-container">
+    <table>
+        <thead>
+            <th>S.No</th>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Discount</th>
+            <th *ngIf="!showAddProduct"><button (click)="showAddProductInputField()">Add Product</button></th>
+        </thead>
+        <tr *ngIf="showAddProduct">
+            <td></td>
+            <td><input type="text" name="productId" id="productId" [(ngModel)]="newProduct.productId"></td>
+            <td><input type="text" name="productName" id="productName" [(ngModel)]="newProduct.name"></td>
+            <td><input type="text" name="price" id="price" [(ngModel)]="newProduct.price"></td>
+            <td><input type="text" name="stock" id="stock" [(ngModel)]="newProduct.stock"></td>
+            <td><input type="text" name="discount" id="discount" [(ngModel)]="newProduct.discount"></td>
+            <th><button (click)="addProduct()">Add</button></th>
+        </tr>
+        <tr *ngFor="let product of products; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{product.productId}}</td>
+            <td>{{product.name}}</td>
+            <td> {{product.price | currency : "INR"}}</td>
+            <td *ngIf="product.stock != 0; else noStocks">{{product.stock}}</td>
+            <ng-template #noStocks>
+                <td>Stocks unavailable</td>
+            </ng-template>
+            <td *ngIf="product.discount; else noDiscount">{{product.discount | percent}}</td>
+            <ng-template #noDiscount>
+                <td>-</td>
+            </ng-template>
+            <td><button (click)="editValues()">Edit</button></td>
+        </tr>
+    </table>
+</div>

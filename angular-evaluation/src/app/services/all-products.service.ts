@@ -8,5 +8,9 @@ export class ProductsDetails{
         new Products(5004,"Mouse",320,40),
         new Products(5005,"Monitor",7600,15),
     ]
-}
 
+    addProduct(newProduct : Products) : boolean{
+        this.productDetails.push(newProduct);
+        return false;
+    }
+}

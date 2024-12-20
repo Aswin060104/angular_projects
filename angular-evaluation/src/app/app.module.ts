@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { BillingComponent } from './billing/billing.component';
 import { ProductsDetails } from './services/all-products.service';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { AdminComponent } from './admin/admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillingComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     ProductsDetails
