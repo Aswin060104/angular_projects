@@ -16,7 +16,7 @@
                 <td>{{product.price}}</td>
                 <td *ngIf="product.stock != 0; else noStocks">{{product.stock}}</td>
                 <ng-template #noStocks>
-                    <td>Stocks Unavaliable</td>
+                    <td>Stocks unavailable</td>
                 </ng-template>
                 <td *ngIf="product.discount; else noDiscount">{{product.discount | percent}}</td>
                 <ng-template #noDiscount>
@@ -27,17 +27,17 @@
         </table>
     </div>
     <div class="form-container">
-        <form action="">
+        <form>
             <h2>Billing</h2>
                 <input type="text" placeholder="Enter Product ID" #productId>
                 <span class="invalid-values" *ngIf="productIdNotFound"> *Product Id not found</span>
                 <input type="text" placeholder="Enter Quantity" #quantity>
                 <span class="invalid-values" *ngIf="invalidQuantity1">*Quantity can't be String</span>
                 <span class="invalid-values" *ngIf="invalidQuantity2"> *Quantity can't be Zero or Negative</span>
-                <span class="invalid-values" *ngIf="invalidQuantity3"> *Stocks unavaliable</span>
+                <span class="invalid-values" *ngIf="invalidQuantity3"> *Stocks unavailable</span>
                 <div class="buttons-container">
-                    <button (click)="addProduct(productId, quantity)">Add Product</button>
-                    <button (click)="calculateBill()">Calculate Bill</button>
+                    <button (click)="addProduct(productId, quantity)" type="button">Add Product</button>
+                    <button (click)="calculateBill()" type="button">Calculate Bill</button>
                 </div>
                 <span *ngIf="showProductSpan">Product added to cart</span>
         </form>

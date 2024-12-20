@@ -27,7 +27,7 @@ export class BillingComponent {
   allProducts : Products[] = this.productDetailService.productDetails;
 
   ngOnInit() {
-    for(var product of this.allProducts)
+    for(let product of this.allProducts)
       this.price.set(product.productId, product.price);
   }
   allPrices: number[] = [];
