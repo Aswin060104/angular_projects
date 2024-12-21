@@ -11,6 +11,6 @@ export class Products {
         this.price = price;
         this.stock = stock;
         if (discount)
-            this.discount = discount;
+            this.discount = discount / 100;
     }
 }

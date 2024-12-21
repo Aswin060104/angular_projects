@@ -1,8 +1,17 @@
+.table-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    place-self: center;
+}
 table{
     text-align: left;
     border-collapse: collapse;
     background-color: rgb(207, 210, 211);
     font-family: Arial, Helvetica, sans-serif; 
+    table-layout: fixed;
+    width: 100%;
 }
 table tr, td, th {
     padding: 10px 15px;
@@ -27,13 +36,43 @@ td button{
     border: none;
     padding: 5px 10px;
 }
-th button{
+#add-product-btn{
     color: white;
     background-color: rgb(6, 4, 124);
     padding: 5px;
     padding: 5px 10px;
     border: none;
 }
-td input{
-    width: 100px;
+input[type="text"]{
+    width: 90%;
+    border: none;
+    background-color: inherit;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgb(98, 4, 248);
+    padding: 5px;
+}
+input:focus{
+    outline: none;
+}
+td span{
+    all: inherit;
+    color: rgb(172, 6, 6);
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 14px;
+    padding: 0px;
+}
+.input-row td, .editingInputRow td{
+    vertical-align: top;
+}
+.editingInputRow button{
+    background-color: rgb(31, 71, 247);
+    color: white;
+    border-radius: 5px;
+    margin: 10px 15px;
+    border: none;
+    padding: 5px 10px;
+}
+.editingInputRow button:hover{
+    background-color: rgb(15, 15, 185);
 }

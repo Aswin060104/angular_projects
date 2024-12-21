@@ -1,37 +1,87 @@
 <div class="table-container">
-    <table>
-        <thead>
-            <th>S.No</th>
-            <th>Product Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Discount</th>
-            <th *ngIf="!showAddProduct"><button (click)="showAddProductInputField()">Add Product</button></th>
-        </thead>
-        <tr *ngIf="showAddProduct">
-            <td></td>
-            <td><input type="text" name="productId" id="productId" [(ngModel)]="newProduct.productId"></td>
-            <td><input type="text" name="productName" id="productName" [(ngModel)]="newProduct.name"></td>
-            <td><input type="text" name="price" id="price" [(ngModel)]="newProduct.price"></td>
-            <td><input type="text" name="stock" id="stock" [(ngModel)]="newProduct.stock"></td>
-            <td><input type="text" name="discount" id="discount" [(ngModel)]="newProduct.discount"></td>
-            <th><button (click)="addProduct()">Add</button></th>
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Product Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Discount</th>
+        <th *ngIf="!showAddProduct; else option">
+          <button (click)="showAddProductInputField()" id="add-product-btn">Add Product</button>
+        </th>
+        <ng-template #option>
+          <th>Options</th>
+        </ng-template>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="showAddProduct" class="input-row">
+        <td></td>
+        <td>
+          <input type="text" [(ngModel)]="newProduct.productId" (click)="resetAllError()">
+          <span *ngIf="errorValues.get('errorProductId')"> *Invalid Product Id</span>
+          <span *ngIf="errorValues.get('errorAlreadyExistingProduct')"> *Product Id Already Exists</span>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="newProduct.name" (click)="resetAllError()">
+          <span *ngIf="errorValues.get('errorProductName')"> *Invalid Product Name</span>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="newProduct.price" (click)="resetAllError()">
+          <span *ngIf="errorValues.get('errorProductPrice')"> *Invalid Price</span>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="newProduct.stock" (click)="resetAllError()">
+          <span *ngIf="errorValues.get('errorProductStock')"> *Invalid Stock Value</span>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="newProduct.discount" (click)="resetAllError()">
+          <span  *ngIf="errorValues.get('errorProductDiscount')"> *Invalid Discount</span>
+        </td>
+        <td><button (click)="addProduct()" id="add-product-btn">Add Product</button></td>
+      </tr>
+      <ng-container *ngFor="let product of products; let i = index">
+        <tr *ngIf="editingRowId != product.productId; else editingInputRow">
+        <td>{{ i + 1 }}</td>
+        <td>{{ product.productId }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency : 'INR' }}</td>
+        <td *ngIf="product.stock !== 0; else noStocks">{{ product.stock }}</td>
+        <ng-template #noStocks>
+          <td>Stocks unavailable</td>
+        </ng-template>
+        <td *ngIf="product.discount; else noDiscount">{{ product.discount| percent }}</td>
+        <ng-template #noDiscount>
+          <td>-</td>
+        </ng-template>
+        <td><button (click)="editValues(product.productId, i)">Edit</button></td>
+      </tr>
+      </ng-container>
+      <ng-template #editingInputRow>
+        <tr class="editingInputRow">
+          <td>{{editingRowNumber + 1}}</td>
+          <td>{{products[editingRowNumber].productId}}</td>
+          <td>
+            <input type="text" [(ngModel)]="editProductName" (click)="resetAllError()">
+            <span *ngIf="errorValues.get('errorProductName')"> *Invalid Product Name</span>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="editProductPrice" (click)="resetAllError()">
+            <span *ngIf="errorValues.get('errorProductPrice')"> *Invalid Price</span>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="editProductStock" (click)="resetAllError()">
+            <span *ngIf="errorValues.get('errorProductStock')"> *Invalid Stock value</span>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="editProductDiscount" (click)="resetAllError()">
+            <span *ngIf="errorValues.get('errorProductDiscount')"> *Invalid Discount Value</span>
+          </td>
+          <button (click)="saveEditedValues()">Save</button>
         </tr>
-        <tr *ngFor="let product of products; let i = index">
-            <td>{{i + 1}}</td>
-            <td>{{product.productId}}</td>
-            <td>{{product.name}}</td>
-            <td> {{product.price | currency : "INR"}}</td>
-            <td *ngIf="product.stock != 0; else noStocks">{{product.stock}}</td>
-            <ng-template #noStocks>
-                <td>Stocks unavailable</td>
-            </ng-template>
-            <td *ngIf="product.discount; else noDiscount">{{product.discount | percent}}</td>
-            <ng-template #noDiscount>
-                <td>-</td>
-            </ng-template>
-            <td><button (click)="editValues()">Edit</button></td>
-        </tr>
-    </table>
+      </ng-template>
+    </tbody>
+  </table>
 </div>
