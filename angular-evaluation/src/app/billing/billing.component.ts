@@ -68,11 +68,12 @@ export class BillingComponent {
       this.invalidQuantity1 = false;
       this.invalidQuantity2 = false;
       this.invalidQuantity3 = false;
+
+      if(this.allProducts.find( e => e.productId == parseInt(productId.value)).discount)
+        singleProductPrice = (1 - this.allProducts.find( e => e.productId == parseInt(productId.value)).discount) * singleProductPrice ;
+
+      console.log("Discount " + this.allProducts.find( e => e.productId == parseInt(productId.value)).discount);
       
-      if (parseInt(productId.value) == 5004 || parseInt(productId.value) == 5005 && singleProductPrice) {
-        singleProductPrice = singleProductPrice * 0.8;
-        console.log("discount");
-      }
 
       this.allProducts[indexOfPrice].stock -= parseInt(quantity.value);
       if (singleProductPrice)
