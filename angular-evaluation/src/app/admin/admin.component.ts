@@ -67,12 +67,12 @@ export class AdminComponent {
     else{
       this.newProduct.discount = this.newProduct.discount / 100;
       this.showAddProduct = this.productDetailService.addProduct({productId : newProductId,name: newProductName, price: newProductPrice, stock : newProductStock, discount : newProductDiscount / 100});
-      // this.newProduct.price = 0;
-      // this.newProduct.productId=0;
-      // this.newProduct.name = '';
-      // this.newProduct.price =  0;
-      // this.newProduct.stock = 0;
-      // this.newProduct.discount = 0;
+      this.newProduct.price = 0;
+      this.newProduct.productId=0;
+      this.newProduct.name = '';
+      this.newProduct.price =  0;
+      this.newProduct.stock = 0;
+      this.newProduct.discount = 0;
       console.log(this.newProduct);
       console.log(newProductDiscount);
       
@@ -95,36 +95,33 @@ export class AdminComponent {
 
   editValues(editingProductId : number, rowNumber : number){
 
-    this.editProductName  = this.products[this.editingRowNumber].name;
-    this.editProductPrice  = this.products[this.editingRowNumber].price;
-    this.editProductStock = this.products[this.editingRowNumber].stock;
-    this.editProductDiscount  = this.products[this.editingRowNumber].stock;
+    this.editProductName  = this.products[rowNumber].name;
+    this.editProductPrice  = this.products[rowNumber].price;
+    this.editProductStock = this.products[rowNumber].stock;
+    this.editProductDiscount  = this.products[rowNumber].discount * 100;
     
     this.editingRowId = editingProductId;
     this.editingRowNumber = rowNumber;
     console.log(editingProductId);
-    if(this.products[this.editingRowNumber].discount)
-      this.products[this.editingRowNumber].discount *= 100;
   }
 
   saveEditedValues(){
-    if(this.products[this.editingRowNumber].productId < 1)
-      this.errorValues.set("errorProductId", true);
-    else if(this.products[this.editingRowNumber].name == "")
+    if(this.editProductName == "")
       this.errorValues.set("errorProductName",true);    
-    else if(this.products[this.editingRowNumber].price <= 0)
+    else if(this.editProductPrice <= 0)
       this.errorValues.set("errorProductPrice",true);
-    else if(this.products[this.editingRowNumber].stock < 1)
+    else if(this.editProductStock < 1)
       this.errorValues.set("errorProductStock",true);
-    else if(this.products[this.editingRowNumber].discount && this.products[this.editingRowNumber].discount < 0)
+    else if(this.editProductPrice < 0)
       this.errorValues.set("errorProductDiscount",true);
     else{
       this.products[this.editingRowNumber].discount /= 100;
-      this.productDetailService.updateProduct(this.products[this.editingRowNumber]);
+      this.productDetailService.updateProduct({productId : this.editingRowId,name: this.editProductName, price: this.editProductPrice, stock : this.editProductStock, discount : this.editProductDiscount / 100});
       this.editingRowId = -1;
       this.editingRowNumber = -1;
+      console.log("Success");
+      
     }
     console.log(this.errorValues);
-    
   }
 }

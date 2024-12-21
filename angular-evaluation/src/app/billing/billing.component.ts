@@ -26,7 +26,7 @@ export class BillingComponent {
 
   allProducts : Products[] = this.productDetailService.productDetails;
 
-  ngOnInit() {
+  ngDoCheck() {
     for(let product of this.allProducts)
       this.price.set(product.productId, product.price);
   }
@@ -86,6 +86,8 @@ export class BillingComponent {
       this.showProductAdded();
 
       console.log(this.purchasedProducts);
+      console.log(this.allProducts);
+      
     }
   }
 

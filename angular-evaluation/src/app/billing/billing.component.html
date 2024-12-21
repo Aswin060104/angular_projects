@@ -60,7 +60,7 @@
                 </tr>
                 <tr *ngIf="totalBill != 0">
                     <td colspan="4" style="text-align: right;"><b>Total Price : </b> </td>
-                    <td><b>{{totalBill}}</b></td>
+                    <td><b>{{totalBill | currency : "INR"}}</b></td>
                 </tr>
         </table>
         </div>

@@ -15,6 +15,13 @@ export class ProductsDetails{
     }
 
     updateProduct(updatedProduct : Products) {
-
+        let updatingProduct : Products = this.productDetails.find( e => e.productId == updatedProduct.productId);
+        console.log(updatedProduct);
+        updatingProduct.name = updatedProduct.name;
+        updatingProduct.price = updatedProduct.price;
+        updatingProduct.stock = updatedProduct.stock;
+        updatingProduct.discount = updatedProduct.discount;
+        console.log(updatingProduct);
+        
     }
 }
