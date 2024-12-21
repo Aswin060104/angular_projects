@@ -1,9 +1,12 @@
-body{
+.main-container{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
+    min-height: 100vh;
+    margin-bottom: 100px;
+    flex-grow: 1;
 }
 .product-description{
     text-align: center;
@@ -60,6 +63,9 @@ form > input:focus{
 }
 .invalid-values{
     color: red;
+}
+.products-container{
+    margin: 40px;
 }
 table{
     border-collapse: collapse;
