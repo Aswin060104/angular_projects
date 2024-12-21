@@ -79,7 +79,10 @@
             <input type="text" [(ngModel)]="editProductDiscount" (click)="resetAllError()">
             <span *ngIf="errorValues.get('errorProductDiscount')"> *Invalid Discount Value</span>
           </td>
-          <button (click)="saveEditedValues()">Save</button>
+          <td class="editing-buttons">
+            <button (click)="saveEditedValues()">Save</button>
+            <button (click)="cancelUpdate()" id="cancel-btn">Cancel</button>
+          </td>
         </tr>
       </ng-template>
     </tbody>

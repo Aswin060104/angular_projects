@@ -124,4 +124,9 @@ export class AdminComponent {
     }
     console.log(this.errorValues);
   }
+
+  cancelUpdate(){
+      this.editingRowId = -1;
+      this.editingRowNumber = -1;
+  }
 }
