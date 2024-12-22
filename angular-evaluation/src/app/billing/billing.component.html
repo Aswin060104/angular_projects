@@ -1,6 +1,7 @@
 <div class="main-container">
     <div class="product-description">
         <h2>Items in the Store</h2>
+        <input type="text" placeholder="Search" id="search-product" name="searchProduct" [(ngModel)]="searchProduct">
         <table>
             <thead>
                 <th>S.No</th>
@@ -10,7 +11,7 @@
                 <th>Discount</th>
             </thead>
             <ng-container *ngFor="let product of allProducts">
-                <tr [ngClass]="{ 'discount-row' : product.discount}">
+                <tr [ngClass]="{ 'discount-row' : product.discount > 0}" *ngIf="hasProduct(product.name, product.productId)">
                     <td>{{product.productId}}</td>
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
@@ -24,14 +25,17 @@
                     </ng-template>
                 </tr>
             </ng-container>
+            <!-- <tr style="display:inline-block; place-self: center; width: 100%;">
+                No Products Found
+            </tr> -->
         </table>
     </div>
     <div class="form-container">
         <form>
             <h2>Billing</h2>
-            <input type="text" placeholder="Enter Product ID" #productId>
+            <input type="text" placeholder="Enter Product ID" #productId (click)="resetError()">
             <span class="invalid-values" *ngIf="productIdNotFound"> *Product Id not found</span>
-            <input type="text" placeholder="Enter Quantity" #quantity>
+            <input type="text" placeholder="Enter Quantity" #quantity (click)="resetError()">
             <span class="invalid-values" *ngIf="invalidQuantity1">*Quantity can't be String</span>
             <span class="invalid-values" *ngIf="invalidQuantity2"> *Quantity can't be Zero or Negative</span>
             <span class="invalid-values" *ngIf="invalidQuantity3"> *Stocks unavailable</span>
@@ -40,6 +44,7 @@
                 <button (click)="calculateBill()" type="button">Calculate Bill</button>
             </div>
             <span *ngIf="showProductSpan">Product added to cart</span>
+            <span *ngIf="noProductsPurchased">*No Products in the cart</span>
         </form>
     </div>
     <div class="products-container" *ngIf="purchasedProducts.length != 0">
@@ -60,7 +65,7 @@
                     <td>{{product.quantity}}</td>
                     <td>{{product.quantitativePrice}}</td>
                 </tr>
-                <tr *ngIf="totalBill != 0">
+                <tr *ngIf="totalBill != 0 && showTotalAmount">
                     <td colspan="4" style="text-align: right;"><b>Total Price : </b> </td>
                     <td><b>{{totalBill | currency : "INR"}}</b></td>
                 </tr>

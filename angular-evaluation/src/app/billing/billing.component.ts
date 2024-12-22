@@ -15,6 +15,11 @@ export class BillingComponent {
   invalidQuantity1: boolean = false;
   invalidQuantity2: boolean = false;
   invalidQuantity3: boolean = false;
+  noProductsPurchased: boolean = false;
+  showTotalAmount : boolean = false;
+  showProduct : boolean[] = [false];
+
+  searchProduct : string = "";
 
   @ViewChild('productId')
   productIdInputElement: ElementRef;
@@ -22,45 +27,60 @@ export class BillingComponent {
   @ViewChild('quantity')
   quantityInputElement: ElementRef;
 
-  productDetailService : ProductsDetails = inject(ProductsDetails);
+  productDetailService: ProductsDetails = inject(ProductsDetails);
 
-  allProducts : Products[] = this.productDetailService.productDetails;
+  allProducts: Products[] = this.productDetailService.productDetails;
 
   ngDoCheck() {
-    for(let product of this.allProducts)
+    for (let product of this.allProducts)
       this.price.set(product.productId, product.price);
   }
   allPrices: number[] = [];
 
-  purchasedProducts: { productId: string, quantity: string,price: number, quantitativePrice: number}[] = [];
+  purchasedProducts: { productId: string, quantity: string, price: number, quantitativePrice: number }[] = [];
 
   totalBill: number = 0;
   showProductSpan: boolean = false;
 
-  calculateBill() {
-    this.totalBill = 0;
-    for (let price of this.allPrices)
-      this.totalBill += price;
-    console.log(this.totalBill);
+  hasProduct(productName : string, productId :number) : boolean{
+    console.log(this.searchProduct);
+    
+    if(productName.toLocaleLowerCase().includes(this.searchProduct.toLocaleLowerCase()) && this.searchProduct.length != 0 || productId.toString().includes(this.searchProduct))
+      return true;
+    else
+      return false;
   }
-  
+
+  calculateBill() {
+    if (this.purchasedProducts.length == 0)
+      this.noProductsPurchased = true;
+    else {
+      this.totalBill = 0;
+      for (let price of this.allPrices)
+        this.totalBill += price;
+      console.log(this.totalBill);
+      this.resetError();
+      this.showTotalAmount = true;
+    }
+  }
+
   addProduct(productId: HTMLInputElement, quantity: HTMLInputElement) {
     let singleProductPrice: number | undefined = this.price.get(parseInt(productId.value));
 
-    let indexOfPrice : number = this.allProducts.findIndex(
+    let indexOfPrice: number = this.allProducts.findIndex(
       e => e.productId == parseInt(productId.value)
     )
 
     if (!this.price.has(parseInt(productId.value))) {
       this.productIdNotFound = true;
     }
-    else if (isNaN(parseInt(quantity.value)))  {
+    else if (isNaN(parseInt(quantity.value))) {
       this.invalidQuantity1 = true;
     }
-    else if(parseInt(quantity.value) < 1){
+    else if (parseInt(quantity.value) < 1) {
       this.invalidQuantity2 = true;
     }
-    else if(this.allProducts[indexOfPrice].stock - parseInt(quantity.value) < 0){
+    else if (this.allProducts[indexOfPrice].stock - parseInt(quantity.value) < 0) {
       this.invalidQuantity3 = true;
     }
     else {
@@ -69,18 +89,18 @@ export class BillingComponent {
       this.invalidQuantity2 = false;
       this.invalidQuantity3 = false;
 
-      if(this.allProducts.find( e => e.productId == parseInt(productId.value)).discount)
-        singleProductPrice = (1 - this.allProducts.find( e => e.productId == parseInt(productId.value)).discount) * singleProductPrice ;
+      if (this.allProducts.find(e => e.productId == parseInt(productId.value)).discount)
+        singleProductPrice = (1 - this.allProducts.find(e => e.productId == parseInt(productId.value)).discount) * singleProductPrice;
 
-      console.log("Discount " + this.allProducts.find( e => e.productId == parseInt(productId.value)).discount);
-      
+      console.log("Discount " + this.allProducts.find(e => e.productId == parseInt(productId.value)).discount);
+
 
       this.allProducts[indexOfPrice].stock -= parseInt(quantity.value);
       if (singleProductPrice)
         this.allPrices.push(singleProductPrice * parseInt(quantity.value));
 
       console.log(this.allPrices);
-      
+
       console.log(singleProductPrice);
 
       this.purchasedProducts.push({ productId: productId.value, quantity: quantity.value, price: singleProductPrice, quantitativePrice: this.allPrices[this.allPrices.length - 1] });
@@ -88,7 +108,7 @@ export class BillingComponent {
 
       console.log(this.purchasedProducts);
       console.log(this.allProducts);
-      
+
     }
   }
 
@@ -96,8 +116,15 @@ export class BillingComponent {
     this.quantityInputElement.nativeElement.value = "";
     this.productIdInputElement.nativeElement.value = "";
     this.showProductSpan = true;
-    setTimeout(() => {
-      this.showProductSpan = false;
-    }, 1000);
+  }
+
+  resetError() {
+    this.productIdNotFound = false;
+    this.invalidQuantity1 = false;
+    this.invalidQuantity2 = false;
+    this.invalidQuantity3 = false;
+    this.showProductSpan = false;
+    this.noProductsPurchased = false;
+    this.showTotalAmount = false;    
   }
 }

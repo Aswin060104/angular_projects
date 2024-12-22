@@ -31,6 +31,16 @@ form{
 form h2{
     margin: 0px;
 }
+#search-product{
+    border-radius: 5px;
+    padding: 5px;
+    border: rgb(214, 205, 205) solid 1px;
+    width: 250px;
+}
+#search-product:focus{
+    outline: none;
+    box-shadow: 0px 0px 2px rgb(55, 0, 255);
+}
 form > input{
     width: 80%;
     padding: 5px;
@@ -71,6 +81,7 @@ table{
     border-collapse: collapse;
     background-color: rgb(207, 210, 211);
     font-family: Arial, Helvetica, sans-serif; 
+    margin: 10px;
 }
 table tr, td, th {
     padding: 10px 15px;
