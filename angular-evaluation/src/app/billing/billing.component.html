@@ -11,7 +11,8 @@
                 <th>Discount</th>
             </thead>
             <ng-container *ngFor="let product of allProducts">
-                <tr [ngClass]="{ 'discount-row' : product.discount > 0}" *ngIf="hasProduct(product.name, product.productId)">
+                <tr [ngClass]="{ 'discount-row' : product.discount > 0}"
+                    *ngIf="hasProduct(product.name, product.productId)">
                     <td>{{product.productId}}</td>
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
@@ -25,9 +26,6 @@
                     </ng-template>
                 </tr>
             </ng-container>
-            <!-- <tr style="display:inline-block; place-self: center; width: 100%;">
-                No Products Found
-            </tr> -->
         </table>
     </div>
     <div class="form-container">
@@ -46,6 +44,14 @@
             <span *ngIf="showProductSpan">Product added to cart</span>
             <span *ngIf="noProductsPurchased">*No Products in the cart</span>
         </form>
+        <div class="show-options" *ngIf="showOptionsForAdd">
+            <h3 style="margin: 0px; padding: 0px;">Product ID already present in Cart</h3>
+            <p>Want to add the products to the same</p>
+            <div class="option-buttons">
+                <button (click)="addingProduct(productId, quantity,0)">Add to Same</button>
+                <button (click)="addingProduct(productId, quantity,1)">Add as new Product</button>
+            </div>
+        </div>
     </div>
     <div class="products-container" *ngIf="purchasedProducts.length != 0">
         <ng-container>
@@ -57,6 +63,7 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total Price</th>
+                    <th></th>
                 </tr>
                 <tr *ngFor="let product of purchasedProducts;let i = index;">
                     <td>{{i + 1}}</td>
@@ -64,6 +71,7 @@
                     <td>{{product.price}}</td>
                     <td>{{product.quantity}}</td>
                     <td>{{product.quantitativePrice}}</td>
+                    <td><Button id="deleteButton" (click)="deletePurchasedProduct(product.productId)">Delete</Button></td>
                 </tr>
                 <tr *ngIf="totalBill != 0 && showTotalAmount">
                     <td colspan="4" style="text-align: right;"><b>Total Price : </b> </td>
@@ -72,4 +80,6 @@
             </table>
         </ng-container>
     </div>
+    
 </div>
+<div class="dimming-effect" *ngIf="showOptionsForAdd"></div>

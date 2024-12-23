@@ -9,6 +9,10 @@ export class ProductsDetails{
         new Products(5005,"Monitor",7600,15),
     ]
 
+    purchasedProduct : {productId: number, quantity: number, price: number, quantitativePrice: number}[] = [
+       
+    ];
+
     addProduct(newProduct : Products) : boolean{
         this.productDetails.push(newProduct);
         return false;
@@ -23,5 +27,9 @@ export class ProductsDetails{
         updatingProduct.discount = updatedProduct.discount;
         console.log(updatingProduct);
         
+    }
+
+    purchasedProducts({productId, quantity, price, quantitativePrice }){
+        this.purchasedProduct.push({productId: productId, quantity: quantity, price: price, quantitativePrice: quantitativePrice});
     }
 }

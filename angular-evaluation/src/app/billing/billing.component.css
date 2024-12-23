@@ -5,11 +5,12 @@
     align-items: center;
     padding: 20px;
     min-height: 100vh;
-    margin-bottom: 100px;
     flex-grow: 1;
+    height: auto;
 }
 .product-description{
     text-align: center;
+
 }
 .form-container{
     display: flex;
@@ -97,4 +98,45 @@ table thead{
 }
 .discount-row{
     background-color: rgb(218, 221, 224);
+}
+.show-options{
+    position :absolute;
+    top : 85%;
+    left : 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    background-color: lightblue;
+    padding: 25px;
+    border-radius: 5px;
+}
+.option-buttons{
+    display: flex;
+    gap: 10px;
+}
+.option-buttons button{
+    border: none;
+    padding: 5px 10px;
+}
+.option-buttons :nth-child(1){
+    background-color: rgb(232, 248, 0);
+}
+.option-buttons :nth-child(2){
+    background-color: rgb(212, 152, 41);
+}
+.dimming-effect{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0,0.5);
+}
+#deleteButton{
+    background-color: red;
+    display: flex;
+    gap: 10px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
 }
