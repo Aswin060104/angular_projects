@@ -3,14 +3,12 @@
     flex-direction: column;
     row-gap: 10px;
     align-items: center;
-    padding: 20px;
     min-height: 100vh;
     flex-grow: 1;
     height: auto;
 }
 .product-description{
     text-align: center;
-
 }
 .form-container{
     display: flex;
@@ -139,4 +137,15 @@ table thead{
     border-radius: 5px;
     border: none;
     padding: 5px 10px;
+}
+.marquee{
+    background-color: rgb(231, 231, 231);
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 18px;
+    animation: linear 10s ease;
+}
+.marquee:hover{
+    animation-play-state: paused;
+    cursor: pointer;
 }

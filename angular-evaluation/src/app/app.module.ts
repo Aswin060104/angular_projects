@@ -8,13 +8,16 @@ import { ProductsDetails } from './services/all-products.service';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { UserDetails } from './services/users.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillingComponent,
     NavigationBarComponent,
-    AdminComponent
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-    ProductsDetails
+    ProductsDetails,
+    UserDetails
   ],
   bootstrap: [AppComponent]
 })

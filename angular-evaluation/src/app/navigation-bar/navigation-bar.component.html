@@ -1,7 +1,46 @@
 <nav>
     <ul>
         <li [routerLink]="''">Home</li>
-        <li [routerLink]="'admin'">Admin</li>
-    </ul>
-        <!-- <button>Login</button> -->
+        <li [routerLink]="'billing'">Purchase</li>
+        <li *ngIf="userService.currentUser == 'Aswin'" [routerLink]="'admin'">Admin</li>
+    </ul> 
+        <button *ngIf="userService.currentUser != '' ">{{'Welcome  ' + userService.currentUser}}</button>
+        <button (click)="showRegistration()">{{userService.currentUser == "" ? 'Login' : 'Logout'}}</button>
 </nav>
+<body *ngIf="registration">
+    <div>
+        <form action="" (ngSubmit)="validateUser()" #validationForm="ngForm">
+            <div class="form-title">
+                <div>
+                    <h3>{{registerView ? 'Registration' : 'Login'}}</h3>
+                </div>
+                <img src="assets\close.png" alt="close" (click)="showRegistration()">
+            </div>
+            <input type="text" name="userName" placeholder="Enter the User Name" ngModel (focus)="resetError()" #name="ngModel">
+            
+            <span *ngIf="name.touched && name.value.length == 0"> *Invalid User</span>
+            
+            <input type="password" name="password" placeholder="Enter the Password" ngModel #password="ngModel" [ngClass]="{ 'invalid-input': password.invalid}" (click)="resetError()">
+
+            <!-- <span *ngIf="password.value != '1234' && password.touched"> *Invalid Password</span> pattern="(?=.*[a-z])(?=.*[A-Z]).*" [ngStyle]="{'cursor': validationForm.invalid ? 'not-allowed' : 'default'}"-->
+
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" ngModel  #confirmPassword="ngModel" [ngClass]="{'invalid-input' : password.value != confirmPassword.value && confirmPassword.touched } " [hidden]="!registerView">
+
+            <span *ngIf="password.value != confirmPassword.value && confirmPassword.touched"> *Password doesn't match</span>
+
+            <button type="submit" [disabled]="validationForm.invalid" [hidden]="registerView">Login</button>
+            <button id="newUser-button" type="button" (click)="register()">{{registerView ? 'Register' : 'New User'}}</button>
+            <button type="button" (click)="backToRegister()" *ngIf="registerView">Back to Login</button>
+            <span *ngIf="userNotFound">User Not Found</span>
+        </form>
+    </div>
+    
+</body>
+<div [ngClass]="{'dimmed-layer': showLogOut || registration}"></div>
+<div class="log-option-container" *ngIf="showLogOut">
+    <p>Are you want to logout? </p>
+    <div>
+        <button id="yes-button" (click)="logout('yes')">Yes</button>
+        <button id="no-button" (click)="logout('no')">No</button>
+    </div>
+</div>

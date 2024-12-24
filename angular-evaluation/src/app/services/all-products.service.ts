@@ -9,9 +9,7 @@ export class ProductsDetails{
         new Products(5005,"Monitor",7600,15),
     ]
 
-    purchasedProduct : {productId: number, quantity: number, price: number, quantitativePrice: number}[] = [
-       
-    ];
+    purchasedProducts : {productId: number, quantity: number, price: number, quantitativePrice: number}[] = [];
 
     addProduct(newProduct : Products) : boolean{
         this.productDetails.push(newProduct);
@@ -29,7 +27,7 @@ export class ProductsDetails{
         
     }
 
-    purchasedProducts({productId, quantity, price, quantitativePrice }){
-        this.purchasedProduct.push({productId: productId, quantity: quantity, price: price, quantitativePrice: quantitativePrice});
+    purchasedProduct({productId, quantity, price, quantitativePrice }){
+        this.purchasedProducts.push({productId: productId, quantity: quantity, price: price, quantitativePrice: quantitativePrice});
     }
 }

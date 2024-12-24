@@ -1,4 +1,5 @@
 <div class="main-container">
+    <marquee class="marquee">Login to purchase with discount</marquee>
     <div class="product-description">
         <h2>Items in the Store</h2>
         <input type="text" placeholder="Search" id="search-product" name="searchProduct" [(ngModel)]="searchProduct">
@@ -20,7 +21,7 @@
                     <ng-template #noStocks>
                         <td>Stocks unavailable</td>
                     </ng-template>
-                    <td *ngIf="product.discount; else noDiscount">{{product.discount | percent}}</td>
+                    <td *ngIf="product.discount && userService.currentUser != ''; else noDiscount">{{product.discount | percent}}</td>
                     <ng-template #noDiscount>
                         <td>-</td>
                     </ng-template>
@@ -76,6 +77,7 @@
                 <tr *ngIf="totalBill != 0 && showTotalAmount">
                     <td colspan="4" style="text-align: right;"><b>Total Price : </b> </td>
                     <td><b>{{totalBill | currency : "INR"}}</b></td>
+                    <td></td>
                 </tr>
             </table>
         </ng-container>

@@ -1,6 +1,7 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ProductsDetails } from '../services/all-products.service';
 import { Products } from '../models/purchasedProducts.model';
+import { UserDetails } from '../services/users.service';
 
 
 @Component({
@@ -32,13 +33,15 @@ export class BillingComponent {
   quantityInputElement: ElementRef;
 
   productDetailService: ProductsDetails = inject(ProductsDetails);
+  userService: UserDetails = inject(UserDetails);
 
   allProducts: Products[] = this.productDetailService.productDetails;
-  purchasedProducts = this.productDetailService.purchasedProduct;
+  purchasedProducts = this.productDetailService.purchasedProducts;
 
   ngDoCheck() {
     for (let product of this.allProducts)
       this.price.set(product.productId, product.price);
+    this.purchasedProducts = this.productDetailService.purchasedProducts;
   }
   allPrices: number[] = [];
 
@@ -109,14 +112,14 @@ export class BillingComponent {
 
     this.allProducts[this.indexOfPrice].stock -= parseInt(quantity.value);
 
-    if (this.allProducts.find(e => e.productId == parseInt(productId.value)).discount)
+    if (this.allProducts.find(e => e.productId == parseInt(productId.value)).discount && this.userService.currentUser.length != 0)
       this.singleProductPrice = (1 - this.allProducts.find(e => e.productId == parseInt(productId.value)).discount) * this.singleProductPrice;
       
     if (userOption == 1) {
       if (this.singleProductPrice)
         this.allPrices.push(this.singleProductPrice * parseInt(quantity.value));
 
-      this.productDetailService.purchasedProducts({ productId: parseInt(productId.value), quantity: parseInt(quantity.value), price: this.singleProductPrice, quantitativePrice: this.allPrices[this.allPrices.length - 1]}); 
+      this.productDetailService.purchasedProduct({ productId: parseInt(productId.value), quantity: parseInt(quantity.value), price: this.singleProductPrice, quantitativePrice: this.allPrices[this.allPrices.length - 1]}); 
     }
 
     else {
@@ -160,8 +163,8 @@ export class BillingComponent {
   }
 
   deletePurchasedProduct(productId : number){
-    var index : number = this.productDetailService.purchasedProduct.findIndex(e => e.productId);
-    this.productDetailService.purchasedProduct.splice(index-1,1);
+    let index : number = this.productDetailService.purchasedProducts.findIndex(e => e.productId);
+    this.productDetailService.purchasedProducts.splice(index-1,1);
     this.calculateBill();
   }
 

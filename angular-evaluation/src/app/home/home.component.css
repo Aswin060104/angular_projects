@@ -1,0 +1,5 @@
+.home-container{
+    background-image: url("src\assets\home-bg.jpg");
+    background-size: cover;
+    height: 100vh;
+}
