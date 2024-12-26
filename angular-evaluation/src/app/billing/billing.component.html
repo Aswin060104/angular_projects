@@ -1,5 +1,8 @@
 <div class="main-container">
-    <marquee class="marquee">Login to purchase with discount</marquee>
+    <marquee class="marquee" *ngIf="userService.currentUser == ''; else userBlock">Login to purchase with discount !!!</marquee>
+    <ng-template #userBlock>
+        <marquee class="marquee">Thank you for Login! - {{userService.currentUser}}</marquee>
+    </ng-template>
     <div class="product-description">
         <h2>Items in the Store</h2>
         <input type="text" placeholder="Search" id="search-product" name="searchProduct" [(ngModel)]="searchProduct">

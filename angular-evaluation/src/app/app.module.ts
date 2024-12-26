@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { UserDetails } from './services/users.service';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserDetails } from './services/users.service';
   ],
   providers: [
     ProductsDetails,
-    UserDetails
+    UserDetails,
+    Router
   ],
   bootstrap: [AppComponent]
 })

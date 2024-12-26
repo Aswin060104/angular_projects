@@ -3,10 +3,12 @@
         <li [routerLink]="''">Home</li>
         <li [routerLink]="'billing'">Purchase</li>
         <li *ngIf="userService.currentUser == 'Aswin'" [routerLink]="'admin'">Admin</li>
-    </ul> 
-        <button *ngIf="userService.currentUser != '' ">{{'Welcome  ' + userService.currentUser}}</button>
-        <button (click)="showRegistration()">{{userService.currentUser == "" ? 'Login' : 'Logout'}}</button>
+        <li *ngIf="loginCount != 0">Your Login count : {{loginCount}}</li>
+    </ul>
+    <button *ngIf="userService.currentUser != '' ">{{'Welcome ' + userService.currentUser}}</button>
+    <button (click)="showRegistration()">{{userService.currentUser == "" ? 'Login' : 'Logout'}}</button>
 </nav>
+
 <body *ngIf="registration">
     <div>
         <form action="" (ngSubmit)="validateUser()" #validationForm="ngForm">
@@ -16,31 +18,52 @@
                 </div>
                 <img src="assets\close.png" alt="close" (click)="showRegistration()">
             </div>
-            <input type="text" name="userName" placeholder="Enter the User Name" ngModel (focus)="resetError()" #name="ngModel">
-            
+            <input type="text" name="userName" placeholder="Enter the User Id" ngModel (click)="resetError()"
+                #name="ngModel">
+
             <span *ngIf="name.touched && name.value.length == 0"> *Invalid User</span>
-            
-            <input type="password" name="password" placeholder="Enter the Password" ngModel #password="ngModel" [ngClass]="{ 'invalid-input': password.invalid}" (click)="resetError()">
+
+            <input type="password" name="password" placeholder="Enter the Password" ngModel #password="ngModel"
+                [ngClass]="{ 'invalid-input': password.invalid}" (click)="resetError()">
 
             <!-- <span *ngIf="password.value != '1234' && password.touched"> *Invalid Password</span> pattern="(?=.*[a-z])(?=.*[A-Z]).*" [ngStyle]="{'cursor': validationForm.invalid ? 'not-allowed' : 'default'}"-->
 
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" ngModel  #confirmPassword="ngModel" [ngClass]="{'invalid-input' : password.value != confirmPassword.value && confirmPassword.touched } " [hidden]="!registerView">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" ngModel
+                #confirmPassword="ngModel"
+                [ngClass]="{'invalid-input' : password.value != confirmPassword.value && confirmPassword.touched } "
+                [hidden]="!registerView">
 
-            <span *ngIf="password.value != confirmPassword.value && confirmPassword.touched"> *Password doesn't match</span>
+            <span *ngIf="password.value != confirmPassword.value && confirmPassword.touched"> *Password doesn't
+                match</span>
+            <div class="buttons-container">
+                <button type="submit" [disabled]="validationForm.invalid" [hidden]="registerView">Login</button>
+                <button id="newUser-button" type="button" (click)="register()">{{registerView ? 'Register' : 'New User'}}</button>
+                <button type="button" (click)="backToRegister()" *ngIf="registerView">Back to Login</button>
+            </div>
+            <a (click)="enableForgetPassword()">Forget password</a>
 
-            <button type="submit" [disabled]="validationForm.invalid" [hidden]="registerView">Login</button>
-            <button id="newUser-button" type="button" (click)="register()">{{registerView ? 'Register' : 'New User'}}</button>
-            <button type="button" (click)="backToRegister()" *ngIf="registerView">Back to Login</button>
-            <span *ngIf="userNotFound">User Not Found</span>
+            <!-- <span>{{userService.registeredUsers.filter(e => e.name == name).length == 0 ? 'User Not Found ' : 'Invalid Password' }}</span> -->
         </form>
     </div>
-    
+
 </body>
-<div [ngClass]="{'dimmed-layer': showLogOut || registration}"></div>
+<div [ngClass]="{'dimmed-layer': showLogOut || registration || forgetPassword}"></div>
 <div class="log-option-container" *ngIf="showLogOut">
     <p>Are you want to logout? </p>
     <div>
         <button id="yes-button" (click)="logout('yes')">Yes</button>
         <button id="no-button" (click)="logout('no')">No</button>
     </div>
+</div>
+<div class="log-option-container otp-container" *ngIf="forgetPassword">
+    <input type="text" placeholder="Enter User id" [(ngModel)]="userId" *ngIf="generatedOtp.length == 0; else otpBlock">
+    <img src="assets\close.png" alt="" (click)="enableForgetPassword()">
+    <ng-template #otpBlock>
+        <input type="number" placeholder="Enter the OTP" [(ngModel)]="otp" *ngIf="otp != generatedOtp">
+        <button id="yes-button" (click)="generateOtpAgain()" *ngIf="otp != generatedOtp; else passwordBlock">Generate OTP Again</button>
+    </ng-template>
+    <ng-template #passwordBlock>
+            <input type="text" placeholder="New Password" [(ngModel)]="newPassword">   
+    </ng-template>
+    <button (click)="getOtp()" id="newUser-button"> {{ otp != generatedOtp || generatedOtp.length == 0 ? 'Next' : 'Change Password'}}</button>
 </div>
