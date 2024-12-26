@@ -13,6 +13,7 @@ export class NavigationBarComponent {
   router: Router = inject(Router);
   userService: UserDetails = inject(UserDetails);
   productDetailService: ProductsDetails = inject(ProductsDetails);
+  // snackBar : MatSnac
 
   title = 'reactive-forms';
   registration: boolean = false;
@@ -136,6 +137,8 @@ export class NavigationBarComponent {
         alert("Password Updated");
         this.forgetPassword = false;
         this.registration = true;
+        this.generatedOtp = "";
+        this.userId = "";
       }
       else {
         alert("Invalid OTP")
