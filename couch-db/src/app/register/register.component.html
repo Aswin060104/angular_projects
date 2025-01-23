@@ -1,9 +1,14 @@
 <form action="">
-    <label for="">Name</label>
-    <input type="text" placeholder="Name" name = "customerName" [(ngModel)]="userName">
-    <label for="">Email</label>
-    <input type="text" placeholder="Email" name = "email" [(ngModel)]="email"  required email>
-    <label for="">Password</label>
-    <input type="text" placeholder="Password" name = "password" [(ngModel)]="password">
+  <h3 style="margin: 0px;">
+    Welcome to the Sportiq</h3>
+    <div class="form-lables">
+      <label for="">Name</label>
+      <input type="text" placeholder="Name" name = "customerName" [(ngModel)]="userName" required>
+      <label for="">Email</label>
+      <input type="text" placeholder="Email" name = "email" [(ngModel)]="email"  required email required>
+      <label for="">Password</label>
+      <input type="text" placeholder="Password" name = "password" [(ngModel)]="password" required>  
+    </div>
     <button (click)="register()">Register</button>
+    <button id="add-product-btn" routerLink="">Back to login</button>
   </form>

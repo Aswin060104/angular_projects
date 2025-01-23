@@ -27,6 +27,11 @@ export class CouchDbService{
         return this.http.get<any>(url,{headers:this.headers});
       }
 
+      updateCustomerDetails(customerId : string, revId : string, updatedData : any){
+        const url = `${this.baseURL}/${customerId}`;
+        return this.http.put<any>(url,{data : updatedData, _id : customerId, _rev: revId}, {headers:this.headers});
+      }
+
       deleteUser(userId : string, revId : string){
         const url = `${this.baseURL}/${userId}?rev=${revId}`;
         console.log(url);

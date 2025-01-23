@@ -1,0 +1,26 @@
+.container{
+    box-shadow: 0 0 2px blue;
+    padding: 20px;
+    width: 40%;
+    display: flex;
+    place-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+form input{
+    padding: 5px;
+}
+form button{
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    padding:5px 30px;
+    width: min-content;
+}

@@ -1,6 +1,6 @@
 <form action="">
     <table>
-        <tr>
+        <thead>
             <td>S.No</td>
             <td>Id</td>
             <td>Revision Id</td>
@@ -8,7 +8,8 @@
             <td>Email</td>
             <td></td>
             <td></td>
-        </tr>
+            <td></td>
+        </thead>
         <ng-container *ngFor="let register of registeredUsers;let i = index">
             <tr *ngIf="showEditingID != register.id; else editOption">
                 <td>{{i + 1}}</td>
@@ -16,18 +17,22 @@
                 <td>{{register.rev}}</td>
                 <td>{{register.userName}}</td>
                 <td>{{register.email}}</td>
-                <td><button (click)="editDetails(register.id,register.rev)">Edit</button></td>
-                <td><button (click)="deleteUser(register.id,register.rev)">Delete</button></td>
+                <td><button (click)="editDetails(register.id,register.rev, i + 1)">Edit</button></td>
+                <td><button id="cancel-btn"  (click)="deleteUser(register.id,register.rev)">Delete</button></td>
                 <td></td>    
             </tr>
         </ng-container>
         <ng-template #editOption>
             <tr>
-                <td></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
+                <td>{{editingIndex}}</td>
+                <td>{{editCustomerId}}</td>
+                <td>{{editRevId}}</td>
+                <td><input type="text" name="editingUserName" [(ngModel)]="editUserName"></td>
+                <td><input type="text" name="editingEmail" [(ngModel)]="editEmail"></td>
+                <td><button (click)="saveDetails()">save</button></td>
+                <td><button id="cancel-btn" (click)="cancelUpdate()">cancel</button></td>
             </tr>
         </ng-template>
     </table>
+    <button [routerLink]="'../'">Back to login</button>
 </form>
