@@ -1,0 +1,33 @@
+<form action="">
+    <table>
+        <tr>
+            <td>S.No</td>
+            <td>Id</td>
+            <td>Revision Id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <ng-container *ngFor="let register of registeredUsers;let i = index">
+            <tr *ngIf="showEditingID != register.id; else editOption">
+                <td>{{i + 1}}</td>
+                <td>{{register.id}}</td>
+                <td>{{register.rev}}</td>
+                <td>{{register.userName}}</td>
+                <td>{{register.email}}</td>
+                <td><button (click)="editDetails(register.id,register.rev)">Edit</button></td>
+                <td><button (click)="deleteUser(register.id,register.rev)">Delete</button></td>
+                <td></td>    
+            </tr>
+        </ng-container>
+        <ng-template #editOption>
+            <tr>
+                <td></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </ng-template>
+    </table>
+</form>

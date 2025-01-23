@@ -33,15 +33,14 @@ export class ObservableComponent implements AfterViewInit{
     //   //alert("All data are received")
     // })  
 
-    this.fromObservable.subscribe({
-      next(value : number){
+    this.ofObservable.subscribe({
+      next:(value)=>{
         console.log(value);
       }, 
       error(){
-
       }, 
       complete(){
-
+        
       }
     })
   }
@@ -50,7 +49,7 @@ export class ObservableComponent implements AfterViewInit{
 
   fromObservable = from([1,2,3,4,5]).pipe(
     filter( (e) => {
-    return e % 2 == 0;
+    return e % 1 == 0;
   }));
 
   count = 0;

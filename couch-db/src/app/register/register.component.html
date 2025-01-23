@@ -1,0 +1,9 @@
+<form action="">
+    <label for="">Name</label>
+    <input type="text" placeholder="Name" name = "customerName" [(ngModel)]="userName">
+    <label for="">Email</label>
+    <input type="text" placeholder="Email" name = "email" [(ngModel)]="email"  required email>
+    <label for="">Password</label>
+    <input type="text" placeholder="Password" name = "password" [(ngModel)]="password">
+    <button (click)="register()">Register</button>
+  </form>
